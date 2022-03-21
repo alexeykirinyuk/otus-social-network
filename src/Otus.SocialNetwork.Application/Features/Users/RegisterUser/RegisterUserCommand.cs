@@ -1,3 +1,4 @@
+using MediatR;
 using Otus.SocialNetwork.Domain;
 
 namespace Otus.SocialNetwork.Application.Features.Users.RegisterUser;
@@ -10,4 +11,4 @@ public sealed record RegisterUserCommand(
     Sex? Sex,
     IReadOnlyList<string> Interests,
     string? City
-);
+) : IRequest;

@@ -1,6 +1,6 @@
-namespace Otus.SocialNetwork.Persistence;
+namespace Otus.SocialNetwork.Persistence.QueryObjects.UserExists;
 
-public static class UsersSql
+public class UserExistsSql
 {
     public const string CHECK_USER_EXISTS_BY_USERNAME = @"
 SELECT EXISTS(

@@ -2,20 +2,19 @@ USE otus_social_network;
 
 CREATE TABLE interest
 (
-    id   BIGINT PRIMARY KEY,
+    id   BIGINT PRIMARY KEY AUTO_INCREMENT,
     name TEXT NOT NULL
 );
 
 CREATE TABLE city
 (
-    id   BIGINT PRIMARY KEY,
+    id   BIGINT PRIMARY KEY AUTO_INCREMENT,
     name TEXT NOT NULL
 );
 
 CREATE TABLE user
 (
-    id            BIGINT PRIMARY KEY,
-    username      TEXT      NOT NULL,
+    username      TEXT PRIMARY KEY,
     first_name    TEXT      NULL,
     last_name     TEXT      NULL,
     date_of_birth DATE      NULL,

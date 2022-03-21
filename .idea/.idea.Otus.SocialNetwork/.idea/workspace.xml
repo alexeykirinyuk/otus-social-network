@@ -5,15 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/UsersSql.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Otus.SocialNetwork.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork/Otus.SocialNetwork.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork/appsettings.json" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/IUserExistsQueryObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/Records/InterestRecord.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserQueryObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserSql.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/UserExists/UserExistsQueryObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/UserExists/UserExistsSql.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Otus.SocialNetwork.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Otus.SocialNetwork.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/ISaveUserQueryObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/UserRepository.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/UsersSql.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +32,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26c74PLdCbns777xbypUKZO7i0b" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,6 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="advanced.settings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -70,6 +79,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />

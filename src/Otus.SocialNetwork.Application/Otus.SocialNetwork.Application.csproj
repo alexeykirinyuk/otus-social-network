@@ -11,4 +11,8 @@
       <ProjectReference Include="..\Persistence\Otus.SocialNetwork.Persistence.Abstranctions\Otus.SocialNetwork.Persistence.Abstranctions.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="10.0.1" />
+    </ItemGroup>
+
 </Project>
