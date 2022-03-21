@@ -1,6 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SocialNetwork", "Otus.SocialNetwork\Otus.SocialNetwork.csproj", "{570F2C40-8C6C-4A54-8583-E9C98B84D69F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{290FA2DB-3D99-46DC-B8E6-3DE8F62FEF1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{6E0DF31F-259E-4BAB-B56E-41964DB0D152}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{EBEB944E-3103-44E7-83BB-3BCF69EDCD83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SocialNetwork.Persistence", "src\Persistence\Otus.SocialNetwork.Persistence\Otus.SocialNetwork.Persistence.csproj", "{D7BDB3D4-7919-4906-8E05-E20BBC9E0BF1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SocialNetwork.Persistence.Abstranctions", "src\Persistence\Otus.SocialNetwork.Persistence.Abstranctions\Otus.SocialNetwork.Persistence.Abstranctions.csproj", "{76BC5387-84BF-43FF-BA74-75D30E4863B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SocialNetwork.Domain", "src\Otus.SocialNetwork.Domain\Otus.SocialNetwork.Domain.csproj", "{F912C645-9743-47D6-9A96-B4358C87CECC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SocialNetwork.Application", "src\Otus.SocialNetwork.Application\Otus.SocialNetwork.Application.csproj", "{0A25DD64-7C11-4956-A228-494E57B52788}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SocialNetwork", "src\Otus.SocialNetwork\Otus.SocialNetwork.csproj", "{88F43516-4C35-4D09-B921-8296B0BC2691}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{4BDC7AD6-AFA7-4560-BDD7-86DB7422AD36}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\start_mysql.sh = scripts\start_mysql.sh
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +27,33 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{570F2C40-8C6C-4A54-8583-E9C98B84D69F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{570F2C40-8C6C-4A54-8583-E9C98B84D69F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{570F2C40-8C6C-4A54-8583-E9C98B84D69F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{570F2C40-8C6C-4A54-8583-E9C98B84D69F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7BDB3D4-7919-4906-8E05-E20BBC9E0BF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7BDB3D4-7919-4906-8E05-E20BBC9E0BF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7BDB3D4-7919-4906-8E05-E20BBC9E0BF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7BDB3D4-7919-4906-8E05-E20BBC9E0BF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76BC5387-84BF-43FF-BA74-75D30E4863B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76BC5387-84BF-43FF-BA74-75D30E4863B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76BC5387-84BF-43FF-BA74-75D30E4863B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76BC5387-84BF-43FF-BA74-75D30E4863B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F912C645-9743-47D6-9A96-B4358C87CECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F912C645-9743-47D6-9A96-B4358C87CECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F912C645-9743-47D6-9A96-B4358C87CECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F912C645-9743-47D6-9A96-B4358C87CECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A25DD64-7C11-4956-A228-494E57B52788}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A25DD64-7C11-4956-A228-494E57B52788}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A25DD64-7C11-4956-A228-494E57B52788}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A25DD64-7C11-4956-A228-494E57B52788}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F43516-4C35-4D09-B921-8296B0BC2691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F43516-4C35-4D09-B921-8296B0BC2691}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F43516-4C35-4D09-B921-8296B0BC2691}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F43516-4C35-4D09-B921-8296B0BC2691}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EBEB944E-3103-44E7-83BB-3BCF69EDCD83} = {290FA2DB-3D99-46DC-B8E6-3DE8F62FEF1E}
+		{D7BDB3D4-7919-4906-8E05-E20BBC9E0BF1} = {EBEB944E-3103-44E7-83BB-3BCF69EDCD83}
+		{76BC5387-84BF-43FF-BA74-75D30E4863B3} = {EBEB944E-3103-44E7-83BB-3BCF69EDCD83}
+		{F912C645-9743-47D6-9A96-B4358C87CECC} = {290FA2DB-3D99-46DC-B8E6-3DE8F62FEF1E}
+		{0A25DD64-7C11-4956-A228-494E57B52788} = {290FA2DB-3D99-46DC-B8E6-3DE8F62FEF1E}
+		{88F43516-4C35-4D09-B921-8296B0BC2691} = {290FA2DB-3D99-46DC-B8E6-3DE8F62FEF1E}
 	EndGlobalSection
 EndGlobal
