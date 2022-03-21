@@ -3,8 +3,8 @@ namespace Otus.SocialNetwork.Persistence.QueryObjects.SaveUser;
 public static class SaveUsersSql
 {
     public const string INSERT_OR_UPDATE_USER = @"
-INSERT INTO user (username, first_name, last_name, date_of_birth, sex, city_id, created_at)
-    VALUES (@username, @firstName, @lastName, @dateOfBirth, @sex, @cityId, @createdAt)
+INSERT INTO user (username, first_name, last_name, date_of_birth, sex, city_id, password_hash, created_at)
+    VALUES (@username, @firstName, @lastName, @dateOfBirth, @sex, @cityId, @passwordHash, @createdAt)
 ON CONFLICT (username) DO UPDATE SET
 first_name = EXCLUDED.first_name,
 last_name = EXCLUDED.last_name,

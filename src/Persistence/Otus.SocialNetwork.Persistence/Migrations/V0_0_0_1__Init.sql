@@ -20,6 +20,7 @@ CREATE TABLE user
     date_of_birth DATE      NULL,
     sex           SMALLINT  NULL,
     city_id       BIGINT    NULL,
+    password_hash TEXT      NOT NULL,
     created_at    TIMESTAMP NOT NULL
 );
 

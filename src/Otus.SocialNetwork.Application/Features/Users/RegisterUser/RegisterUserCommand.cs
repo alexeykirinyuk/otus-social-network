@@ -10,5 +10,6 @@ public sealed record RegisterUserCommand(
     DateTime? DateOfBirth,
     Sex? Sex,
     IReadOnlyList<string> Interests,
-    string? City
+    string? City,
+    string Password
 ) : IRequest;

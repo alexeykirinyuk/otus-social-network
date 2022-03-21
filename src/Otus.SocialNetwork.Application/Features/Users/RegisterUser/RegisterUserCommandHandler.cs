@@ -9,13 +9,16 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
 {
     private readonly IUserExistsQueryObject _userExistsQueryObject;
     private readonly ISaveUserQueryObject _saveUserQueryObject;
+    private readonly IPasswordHashCalculator _passwordHashCalculator;
 
     public RegisterUserCommandHandler(
         IUserExistsQueryObject userExistsQueryObject,
-        ISaveUserQueryObject saveUserQueryObject)
+        ISaveUserQueryObject saveUserQueryObject,
+        IPasswordHashCalculator passwordHashCalculator)
     {
         _userExistsQueryObject = userExistsQueryObject;
         _saveUserQueryObject = saveUserQueryObject;
+        _passwordHashCalculator = passwordHashCalculator;
     }
 
     public async Task<Unit> Handle(RegisterUserCommand request, CancellationToken ct)
@@ -32,7 +35,8 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
             request.DateOfBirth,
             request.Sex,
             request.Interests,
-            request.City);
+            request.City,
+            _passwordHashCalculator.CalculateHash(request.Password));
 
         await _saveUserQueryObject.SaveAsync(user, ct);
 

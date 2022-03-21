@@ -10,6 +10,7 @@ public sealed class User
     public IReadOnlyList<string> Interests { get; }
     public string? City { get; }
     public DateTime CreatedAt { get; }
+    public string PasswordHash { get; }
 
     public User(
         string username,
@@ -19,6 +20,7 @@ public sealed class User
         Sex? sex,
         IReadOnlyList<string> interests,
         string? city,
+        string passwordHash,
         DateTime createdAt)
     {
         Username = username;
@@ -38,7 +40,8 @@ public sealed class User
         DateTime? dateOfBirth,
         Sex? sex,
         IReadOnlyList<string> interests,
-        string? city)
+        string? city,
+        string passwordHash)
     {
         return new User(
             username,
@@ -48,6 +51,7 @@ public sealed class User
             sex,
             interests,
             city,
+            passwordHash,
             DateTime.UtcNow);
     }
 }
