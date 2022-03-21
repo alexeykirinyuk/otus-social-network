@@ -4,21 +4,14 @@
     <projectFile profileName="Otus.SocialNetwork">src/Otus.SocialNetwork/Otus.SocialNetwork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/IUserExistsQueryObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/Records/InterestRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserQueryObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserSql.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/UserExists/UserExistsQueryObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/UserExists/UserExistsSql.cs" afterDir="false" />
+    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="implementing password hash">
+      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/ApplicationModule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/PresentationModule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Startup.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/PersistenceModule.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserUseCase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Libs/IUseCase.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Otus.SocialNetwork.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Otus.SocialNetwork.Application.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/IUserRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/ISaveUserQueryObject.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/UserRepository.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/UsersSql.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +20,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -75,6 +76,21 @@
       <updated>1647710829048</updated>
       <workItem from="1647710832391" duration="1046000" />
     </task>
+    <task id="LOCAL-00001" summary="implemented user registration">
+      <created>1647885066994</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1647885066994</updated>
+    </task>
+    <task id="LOCAL-00002" summary="implementing password hash">
+      <created>1647885771193</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1647885771193</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -96,5 +112,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="implemented user registration" />
+    <MESSAGE value="implementing password hash" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementing password hash" />
   </component>
 </project>

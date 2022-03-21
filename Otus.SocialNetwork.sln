@@ -19,6 +19,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{4BDC7AD6-AFA7-4560-BDD7-86DB7422AD36}"
 	ProjectSection(SolutionItems) = preProject
 		scripts\start_mysql.sh = scripts\start_mysql.sh
+		NuGet.config = NuGet.config
 	EndProjectSection
 EndProject
 Global
