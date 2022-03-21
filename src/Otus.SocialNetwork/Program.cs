@@ -1,8 +1,8 @@
-using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore;
+using Otus.SocialNetwork;
 
-var builder = WebApplication.CreateBuilder(args);
-var app = builder.Build();
+var app = WebHost.CreateDefaultBuilder(args)
+    .UseStartup<Startup>()
+    .Build();
 
-app.MapGet("/", () => "hello world");
-
-app.Run();
+await app.RunAsync();

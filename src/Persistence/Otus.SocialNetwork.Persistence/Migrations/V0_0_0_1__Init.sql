@@ -14,7 +14,7 @@ CREATE TABLE city
 
 CREATE TABLE user
 (
-    username      TEXT PRIMARY KEY,
+    username      VARCHAR(50) PRIMARY KEY,
     first_name    TEXT      NULL,
     last_name     TEXT      NULL,
     date_of_birth DATE      NULL,
@@ -26,7 +26,7 @@ CREATE TABLE user
 
 CREATE TABLE user_interest
 (
-    user_id     BIGINT NOT NULL,
-    interest_id BIGINT NOT NULL,
-    PRIMARY KEY (user_id, interest_id)
+    username    VARCHAR(50) NOT NULL,
+    interest_id BIGINT      NOT NULL,
+    PRIMARY KEY (username, interest_id)
 );

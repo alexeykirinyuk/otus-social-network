@@ -8,6 +8,11 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Otus.SocialNetwork.Application\Otus.SocialNetwork.Application.csproj" />
+      <ProjectReference Include="..\Persistence\Otus.SocialNetwork.Persistence\Otus.SocialNetwork.Persistence.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
     </ItemGroup>
 
 </Project>

@@ -1,36 +1,44 @@
 using System.Data;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
+using Otus.SocialNetwork.Persistence.MediatR;
+using Otus.SocialNetwork.Persistence.QueryObjects.SaveUser;
 
 namespace Otus.SocialNetwork.Persistence;
 
 public static class PersistenceModule
 {
-}
-
-public sealed class UnitOfWorkFactory : IDisposable
-{
-    private IDbConnection? _db;
-    private IDbTransaction? _dbTransaction;
-
-    public IDbTransaction BeginTransaction()
+    public static IServiceCollection AddPersistenceModule(
+        this IServiceCollection services)
     {
-        _db = new SqlCon
-    }
-    
-    
-    public IDbConnection GetDefault()
-    {
-        if (_db is null)
+        services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
+        services.AddScoped<IDbConnection>(provider =>
         {
-            // TODO: Initialize connection
-            _db = null!;
-        }
+            var connection = provider.GetRequiredService<IUnitOfWorkFactory>().GetDefault().Connection;
+            if (connection is null)
+            {
+                throw new InvalidOperationException("Connection is not initialized.");
+            }
 
-        return _db;
+            return connection;
+        });
+
+        services.Scan(selector =>
+        {
+            selector
+                .FromAssemblyOf<SaveUserQueryObject>()
+                .AddClasses(filter => filter.Where(type => type.Name.EndsWith("QueryObject")))
+                .AsImplementedInterfaces()
+                .WithScopedLifetime();
+        });
+
+        return services;
     }
 
-    public void Dispose()
+    public static void AddUnitOfWorkBehavior(this IServiceCollection services)
     {
-        _db?.Dispose();
-        _dbTransaction?.Dispose();
+        services.AddTransient(
+            typeof(IPipelineBehavior<,>),
+            typeof(UnitOfWorkPipelineBehavior<,>));
     }
 }

@@ -4,6 +4,8 @@ using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
 
 namespace Otus.SocialNetwork.Controllers;
 
+[Route("users")]
+[ApiController]
 public sealed class UsersController : ControllerBase
 {
     private readonly IMediator _mediator;

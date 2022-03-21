@@ -1064,6 +1064,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="289" parent="284" name="name">
       <DataType>text|0s</DataType>
@@ -1079,6 +1080,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="292" parent="285" name="name">
       <DataType>text|0s</DataType>
@@ -1090,34 +1092,34 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="294" parent="286" name="id">
-      <DataType>bigint|0s</DataType>
+    <column id="294" parent="286" name="username">
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="295" parent="286" name="username">
+    <column id="295" parent="286" name="first_name">
       <DataType>text|0s</DataType>
-      <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="296" parent="286" name="first_name">
+    <column id="296" parent="286" name="last_name">
       <DataType>text|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="297" parent="286" name="last_name">
-      <DataType>text|0s</DataType>
+    <column id="297" parent="286" name="date_of_birth">
+      <DataType>date|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="298" parent="286" name="date_of_birth">
-      <DataType>date|0s</DataType>
+    <column id="298" parent="286" name="sex">
+      <DataType>smallint|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="299" parent="286" name="sex">
-      <DataType>smallint|0s</DataType>
+    <column id="299" parent="286" name="city_id">
+      <DataType>bigint|0s</DataType>
       <Position>6</Position>
     </column>
-    <column id="300" parent="286" name="city_id">
-      <DataType>bigint|0s</DataType>
+    <column id="300" parent="286" name="password_hash">
+      <DataType>text|0s</DataType>
+      <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
     <column id="301" parent="286" name="created_at">
@@ -1126,12 +1128,12 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>8</Position>
     </column>
     <key id="302" parent="286" name="PRIMARY">
-      <ColNames>id</ColNames>
+      <ColNames>username</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
     </key>
-    <column id="303" parent="287" name="user_id">
-      <DataType>bigint|0s</DataType>
+    <column id="303" parent="287" name="username">
+      <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
@@ -1141,7 +1143,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Position>2</Position>
     </column>
     <key id="305" parent="287" name="PRIMARY">
-      <ColNames>user_id
+      <ColNames>username
 interest_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>

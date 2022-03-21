@@ -1,4 +1,5 @@
 using Otus.SocialNetwork.Application;
+using Otus.SocialNetwork.Persistence;
 
 namespace Otus.SocialNetwork;
 
@@ -17,7 +18,10 @@ public sealed class Startup
 
         services
             .AddPresentationModule()
-            .AddApplicationModule();
+            .AddApplicationModule()
+            .AddPersistenceModule();
+
+        services.AddSwaggerGen();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -27,9 +31,15 @@ public sealed class Startup
             app.UseDeveloperExceptionPage();
         }
 
+        app.UseSwagger();
+        app.UseSwaggerUI();
+
         app.UseRouting();
 
         app.UseEndpoints(
-            endpoints => { endpoints.MapControllers(); });
+            endpoints =>
+            {
+                endpoints.MapControllers();
+            });
     }
 }

@@ -5,13 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="implementing password hash">
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/ApplicationModule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/PresentationModule.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Startup.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/PersistenceModule.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/UnitOfWorkAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/MediatR/IUnitOfWorkFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/MediatR/UnitOfWorkFactory.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/MediatR/UnitOfWorkPipelineBehavior.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources/43dae6a2-47e4-4a8a-9254-9d343dee24b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources/43dae6a2-47e4-4a8a-9254-9d343dee24b7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Libs/IUseCase.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Otus.SocialNetwork.Application.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Otus.SocialNetwork.Application.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/RegisterUser/RegisterUserCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Domain/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Otus.SocialNetwork.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Otus.SocialNetwork.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/PresentationModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/PresentationModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Startup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Otus.SocialNetwork.Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Otus.SocialNetwork.Persistence.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/PersistenceModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/PersistenceModule.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserQueryObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserQueryObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserSql.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserSql.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +44,15 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/da7bfdc0748e4c23b7765b6c8583d3a2b55200/0d/7cc234f5/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86accab51324475881a60af4440a78ce357e00/0d/81b1119d/ConnectionState.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86accab51324475881a60af4440a78ce357e00/7c/e6b7778c/IDbTransaction.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bebd253e21dcf766929bfdfd74615bfe46e6e1693b289273dbdb82152893/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8755a08a8a98cce2ddc0d6eb1bf2273566513b1a2477a6b8eed967ad8277b16/HandlerBase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86accab51324475881a60af4440a78ce357e00/c4/503db4a8/DbConnectionStringBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -45,8 +69,9 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/" value="MySQL" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="advanced.settings" />
+    <property name="settings.editor.selected.configurable" value="SQL Dialects" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RunManager">
@@ -115,5 +140,16 @@
     <MESSAGE value="implemented user registration" />
     <MESSAGE value="implementing password hash" />
     <option name="LAST_COMMIT_MESSAGE" value="implementing password hash" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="DotNet Exception Breakpoints" />
+      </default-breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

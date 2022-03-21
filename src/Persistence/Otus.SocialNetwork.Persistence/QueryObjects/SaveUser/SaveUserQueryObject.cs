@@ -93,7 +93,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
         }
 
         var interestsToInsert = user.Interests
-            .Where(interest => currentInterests.Any(curInterest => curInterest.Name == interest))
+            .Where(interest => currentInterests.All(curInterest => curInterest.Name != interest))
             .ToArray();
 
         if (interestsToInsert.Any())
@@ -132,7 +132,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
         {
             var query = string.Format(
                 SaveUsersSql.ADD_USER_INTERESTS,
-                string.Join(",", userInterestsToInsert.Select((_, ind) => $"(@userId, @interestId{ind})"))
+                string.Join(",", userInterestsToInsert.Select((_, ind) => $"(@username, @interestId{ind})"))
             );
 
             var parameters = new DynamicParameters();
@@ -144,7 +144,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
             }
 
             await _db.ExecuteAsync(
-                new(query, cancellationToken: ct));
+                new(query, parameters, cancellationToken: ct));
         }
     }
 }

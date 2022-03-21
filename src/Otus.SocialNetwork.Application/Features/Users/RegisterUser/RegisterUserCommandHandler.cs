@@ -28,6 +28,8 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
             throw new UsernameAlreadyExistsException(request.Username);
         }
 
+        var passwordHash = _passwordHashCalculator.CalculateHash(request.Password);
+
         var user = User.RegisterNew(
             request.Username,
             request.FirstName,
@@ -36,7 +38,7 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
             request.Sex,
             request.Interests,
             request.City,
-            _passwordHashCalculator.CalculateHash(request.Password));
+            passwordHash);
 
         await _saveUserQueryObject.SaveAsync(user, ct);
 

@@ -30,6 +30,7 @@ public sealed class User
         Sex = sex;
         Interests = interests;
         City = city;
+        PasswordHash = passwordHash;
         CreatedAt = createdAt;
     }
 
