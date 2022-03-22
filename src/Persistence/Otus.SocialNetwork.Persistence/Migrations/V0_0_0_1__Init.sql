@@ -21,6 +21,7 @@ CREATE TABLE user
     sex           SMALLINT  NULL,
     city_id       BIGINT    NULL,
     password_hash TEXT      NOT NULL,
+    password_salt TEXT      NOT NULL,
     created_at    TIMESTAMP NOT NULL
 );
 

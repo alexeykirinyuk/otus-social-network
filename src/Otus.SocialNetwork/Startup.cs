@@ -17,7 +17,7 @@ public sealed class Startup
         services.AddControllers();
 
         services
-            .AddPresentationModule()
+            .AddPresentationModule(_configuration)
             .AddApplicationModule()
             .AddPersistenceModule();
 

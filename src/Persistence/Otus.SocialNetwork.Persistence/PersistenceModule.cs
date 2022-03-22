@@ -32,6 +32,8 @@ public static class PersistenceModule
                 .WithScopedLifetime();
         });
 
+        Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+
         return services;
     }
 

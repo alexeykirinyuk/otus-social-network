@@ -3,14 +3,16 @@ namespace Otus.SocialNetwork.Persistence.QueryObjects.SaveUser;
 public static class SaveUsersSql
 {
     public const string INSERT_OR_UPDATE_USER = @"
-INSERT INTO user (username, first_name, last_name, date_of_birth, sex, city_id, password_hash, created_at)
-    VALUES (@username, @firstName, @lastName, @dateOfBirth, @sex, @cityId, @passwordHash, @createdAt)
+INSERT INTO user (username, first_name, last_name, date_of_birth, sex, city_id, password_hash, password_salt, created_at)
+    VALUES (@username, @firstName, @lastName, @dateOfBirth, @sex, @cityId, @passwordHash, @passwordSalt, @createdAt)
 ON DUPLICATE KEY UPDATE
 first_name = @firstName,
 last_name = @lastName,
 date_of_birth = @dateOfBirth,
 sex = @sex,
 city_id = @cityId,
+password_hash = @passwordHash,
+password_salt = @passwordSalt,
 created_at = @createdAt
 ";
 

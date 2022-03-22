@@ -14,5 +14,6 @@ public sealed record RegisterUserCommand(
     Sex? Sex,
     IReadOnlyList<string> Interests,
     string? City,
-    string Password
+    string PasswordHash,
+    string PasswordSalt
 ) : IRequest;

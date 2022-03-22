@@ -32,6 +32,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
                 sex = user.Sex,
                 cityId,
                 passwordHash = user.PasswordHash,
+                passwordSalt = user.PasswordSalt,
                 createdAt = user.CreatedAt
             }));
     }

@@ -9,16 +9,13 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
 {
     private readonly IUserExistsQueryObject _userExistsQueryObject;
     private readonly ISaveUserQueryObject _saveUserQueryObject;
-    private readonly IPasswordHashCalculator _passwordHashCalculator;
 
     public RegisterUserCommandHandler(
         IUserExistsQueryObject userExistsQueryObject,
-        ISaveUserQueryObject saveUserQueryObject,
-        IPasswordHashCalculator passwordHashCalculator)
+        ISaveUserQueryObject saveUserQueryObject)
     {
         _userExistsQueryObject = userExistsQueryObject;
         _saveUserQueryObject = saveUserQueryObject;
-        _passwordHashCalculator = passwordHashCalculator;
     }
 
     public async Task<Unit> Handle(RegisterUserCommand request, CancellationToken ct)
@@ -28,8 +25,6 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
             throw new UsernameAlreadyExistsException(request.Username);
         }
 
-        var passwordHash = _passwordHashCalculator.CalculateHash(request.Password);
-
         var user = User.RegisterNew(
             request.Username,
             request.FirstName,
@@ -38,7 +33,8 @@ public sealed class RegisterUserCommandHandler : IRequestHandler<RegisterUserCom
             request.Sex,
             request.Interests,
             request.City,
-            passwordHash);
+            request.PasswordHash,
+            request.PasswordSalt);
 
         await _saveUserQueryObject.SaveAsync(user, ct);
 

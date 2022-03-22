@@ -6,5 +6,5 @@ docker run --name otus-social-network-db -p 3306:3306 \
     -v $MIGRATION_PATH:/docker-entrypoint-initdb.d/ \
     -e "MYSQL_DATABASE=otus_social_network" \
     -e "MYSQL_ROOT_PASSWORD=mysql" \
-    --platform linux/x86_64 \
+    --platform linux/x86_64 -d \
     mysql
