@@ -1,6 +1,8 @@
 namespace Otus.SocialNetwork.Infrastructure.Authorization;
 
-public interface IJwtToketService
+public interface IJwtTokenService
 {
     string GenerateToken(string username);
+
+    Task<string?> GetUsername(string? token);
 }

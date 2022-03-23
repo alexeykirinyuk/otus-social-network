@@ -31,3 +31,10 @@ CREATE TABLE user_interest
     interest_id BIGINT      NOT NULL,
     PRIMARY KEY (username, interest_id)
 );
+
+CREATE TABLE friend
+(
+    user_username   VARCHAR(50) NOT NULL,
+    friend_username VARCHAR(50) NOT NULL,
+    PRIMARY KEY (user_username, friend_username)
+)

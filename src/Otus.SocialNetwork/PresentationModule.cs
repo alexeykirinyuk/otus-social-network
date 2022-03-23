@@ -12,7 +12,7 @@ public static class PresentationModule
         IConfiguration configuration)
     {
         services.AddScoped<IPasswordHashService, PasswordHashService>();
-        services.AddScoped<IJwtToketService, JwtTokenService>();
+        services.AddScoped<IJwtTokenService, JwtTokenService>();
         services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.JWT));
 
         services.AddUnitOfWorkBehavior();

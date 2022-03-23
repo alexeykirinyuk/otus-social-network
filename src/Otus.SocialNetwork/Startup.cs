@@ -1,4 +1,6 @@
+using Microsoft.OpenApi.Models;
 using Otus.SocialNetwork.Application;
+using Otus.SocialNetwork.Infrastructure.Authorization;
 using Otus.SocialNetwork.Persistence;
 
 namespace Otus.SocialNetwork;
@@ -21,7 +23,33 @@ public sealed class Startup
             .AddApplicationModule()
             .AddPersistenceModule();
 
-        services.AddSwaggerGen();
+        services.AddSwaggerGen(opts =>
+        {
+            opts.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            {
+                Description = "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+                In = ParameterLocation.Header,
+                Name = "Authorization",
+                Scheme = "Bearer",
+                BearerFormat = "JWT",
+                Type = SecuritySchemeType.ApiKey
+            });
+
+            opts.AddSecurityRequirement(new OpenApiSecurityRequirement
+            {
+                {
+                    new OpenApiSecurityScheme
+                    {
+                        Reference = new OpenApiReference
+                        {
+                            Type = ReferenceType.SecurityScheme,
+                            Id = "Bearer"
+                        }
+                    },
+                    Array.Empty<string>()
+                }
+            });
+        });
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -34,12 +62,11 @@ public sealed class Startup
         app.UseSwagger();
         app.UseSwaggerUI();
 
+        app.UseMiddleware<CustomAuthorizationMiddleware>();
+
         app.UseRouting();
 
         app.UseEndpoints(
-            endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            endpoints => { endpoints.MapControllers(); });
     }
 }

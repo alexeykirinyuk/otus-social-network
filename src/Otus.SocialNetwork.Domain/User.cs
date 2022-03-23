@@ -9,6 +9,7 @@ public sealed class User
     public Sex? Sex { get; }
     public IReadOnlyList<string> Interests { get; }
     public string? City { get; }
+    public IReadOnlyList<Friend> Friends { get; private set; }
     public DateTime CreatedAt { get; }
     public string PasswordHash { get; }
     public string PasswordSalt { get; }
@@ -21,6 +22,7 @@ public sealed class User
         Sex? sex,
         IReadOnlyList<string> interests,
         string? city,
+        IReadOnlyList<Friend> friends,
         string passwordHash,
         string passwordSalt,
         DateTime createdAt)
@@ -32,6 +34,7 @@ public sealed class User
         Sex = sex;
         Interests = interests;
         City = city;
+        Friends = friends;
         PasswordHash = passwordHash;
         PasswordSalt = passwordSalt;
         CreatedAt = createdAt;
@@ -56,8 +59,19 @@ public sealed class User
             sex,
             interests,
             city,
+            Array.Empty<Friend>(),
             passwordHash,
             passwordSalt,
             DateTime.UtcNow);
+    }
+
+    public void AddFriend(Friend newFriend)
+    {
+        if (Friends.Any(currentFriend => currentFriend.Username == newFriend.Username))
+        {
+            return;
+        }
+
+        Friends = Friends.Append(newFriend).ToArray();
     }
 }

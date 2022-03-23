@@ -51,6 +51,11 @@ SELECT LAST_INSERT_ID();
 
     public const string ADD_USER_INTERESTS = @"
 INSERT INTO user_interest (username, interest_id)
-VALUES {0}
+VALUES {0};
+";
+
+    public const string ADD_FRIENDS = @"
+INSERT INTO friend (user_username, friend_username)
+VALUES {0};
 ";
 }

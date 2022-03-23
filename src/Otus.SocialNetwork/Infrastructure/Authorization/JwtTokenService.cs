@@ -6,7 +6,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Otus.SocialNetwork.Infrastructure.Authorization;
 
-public sealed class JwtTokenService : IJwtToketService
+public sealed class JwtTokenService : IJwtTokenService
 {
     private const string USERNAME_CLAIM_NAME = "username";
 
@@ -34,8 +34,13 @@ public sealed class JwtTokenService : IJwtToketService
         return tokenHandler.WriteToken(token);
     }
 
-    public async Task<string?> GetUsername(string token)
+    public async Task<string?> GetUsername(string? token)
     {
+        if (token is null)
+        {
+            return null;
+        }
+        
         var tokenHandler = new JwtSecurityTokenHandler();
         var key = Encoding.ASCII.GetBytes(_jwtOptions.Secret);
         try
