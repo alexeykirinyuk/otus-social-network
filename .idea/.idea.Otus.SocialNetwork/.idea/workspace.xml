@@ -4,38 +4,7 @@
     <projectFile profileName="Otus.SocialNetwork">src/Otus.SocialNetwork/Otus.SocialNetwork.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Exceptions/UserNotFoundException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommandHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/Dtos/UserDto.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQuery.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQueryHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQueryResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Domain/Friend.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Infrastructure/Authorization/ContextConstants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Infrastructure/Authorization/CustomAuthorizationMiddleware.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Infrastructure/Authorization/CustomAuthorizeAttribute.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence.Abstranctions/IGetUsersQueryObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/GetUsersQueryObject.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/GetUsersSql.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/Records/CityRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/Records/FriendRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/Records/InterestRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/Records/UserInterestRecord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/Records/UserRecord.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources/43dae6a2-47e4-4a8a-9254-9d343dee24b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources/43dae6a2-47e4-4a8a-9254-9d343dee24b7.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Domain/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Infrastructure/Authorization/IJwtToketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Infrastructure/Authorization/IJwtTokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Infrastructure/Authorization/JwtTokenService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Infrastructure/Authorization/JwtTokenService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/PresentationModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/PresentationModule.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Startup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Startup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Migrations/V0_0_0_1__Init.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserSql.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/SaveUser/SaveUserSql.cs" afterDir="false" />
-    </list>
+    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="implementing..." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -113,6 +82,7 @@
       <updated>1647710829048</updated>
       <workItem from="1647710832391" duration="1046000" />
       <workItem from="1648054351189" duration="4737000" />
+      <workItem from="1648064213078" duration="344000" />
     </task>
     <task id="LOCAL-00001" summary="implemented user registration">
       <created>1647885066994</created>
@@ -142,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647978873702</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implementing...">
+      <created>1648064453279</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1648064453279</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +145,8 @@
     <MESSAGE value="implementing password hash" />
     <MESSAGE value="implemented and tested registration process" />
     <MESSAGE value="implemented login and register" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented login and register" />
+    <MESSAGE value="implementing..." />
+    <option name="LAST_COMMIT_MESSAGE" value="implementing..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
