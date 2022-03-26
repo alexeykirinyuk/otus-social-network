@@ -54,10 +54,10 @@ public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
         var jwt = await _localStorage.GetItemAsync<string>("jwt");
 
         var requestMessage = new HttpRequestMessage(
-            HttpMethod.Post,
+            HttpMethod.Put,
             "/users/friend");
         requestMessage.Headers.Add("Authorization", $"Bearer {jwt}");
-        requestMessage.Content = new StringContent(JsonSerializer.Serialize(new Friend.Request(friendUsername)));
+        requestMessage.Content = JsonContent.Create(new Friend.Request(friendUsername));
 
         var responseMessage = await _httpClient.SendAsync(requestMessage, ct);
         responseMessage.EnsureSuccessStatusCode();

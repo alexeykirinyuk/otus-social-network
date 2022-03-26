@@ -14,6 +14,7 @@ public sealed class GetUsers
         Sex? Sex,
         IReadOnlyList<string> Interests,
         string? City,
-        DateTime CreatedAt
+        DateTime CreatedAt,
+        bool IsFriend
     );
 }

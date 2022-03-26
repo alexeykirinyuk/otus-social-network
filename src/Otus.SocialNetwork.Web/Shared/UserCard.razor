@@ -11,7 +11,17 @@
             <div>Город: @(User.City ?? SECRET)</div>
             <div>Присоединился: @User.CreatedAt.ToString("dd.MM.yyyy")</div>
         </div>
-        <button class="btn btn-primary friend-button" onclick="@OnFriendClick">Дружить</button>
+        @{
+            if (!User.IsFriend)
+            {
+                <button class="btn btn-primary friend-button" onclick="@OnFriendClick">Дружить</button>
+            }
+            else
+            {
+                <button class="btn btn-danger friend-button" onclick="@OnUnfriendClick">Разорвать отношения</button>
+            }
+        }
+
     </div>
 </div>
 
@@ -24,6 +34,9 @@
 
     [Parameter]
     public EventCallback OnFriendClick { get; set; }
+
+    [Parameter]
+    public EventCallback OnUnfriendClick { get; set; }
 
     private string Age
     {

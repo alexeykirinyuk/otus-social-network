@@ -8,48 +8,16 @@
     <projectFile profileName="IIS Express">src/temp/temp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/ISocialNetworkAdapter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/GetUsers.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/Login.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/Register.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/Sex.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/SocialNetworkAdapter.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Extensions/ListExtensions.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Pages/Login.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Pages/Registration.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Shared/InputDateForm.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Shared/InputTextForm.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Shared/UserCard.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Utils/LocalStorage.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/wwwroot/appsettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/ViewModels/FriendRequest.cs" afterDir="false" />
+    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="implementing ui (blazor)">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Otus.SocialNetwork.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/.browserslistrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/babel.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/App.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/assets/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/components/HelloWorld.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/router/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/shims-vue.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/store/index.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/views/AboutView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/src/views/HomeView.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/otus-social-network/vue.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/Dtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/Dtos/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQuery.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQueryHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/GetUsers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/GetUsers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/SocialNetworkAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/SocialNetworkAdapter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Shared/UserCard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Shared/UserCard.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Startup.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/GetUsersQueryObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/QueryObjects/GetUsers/GetUsersQueryObject.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +135,7 @@
       <workItem from="1648054351189" duration="4737000" />
       <workItem from="1648064213078" duration="1998000" />
       <workItem from="1648290596204" duration="9209000" />
-      <workItem from="1648300949045" duration="5455000" />
+      <workItem from="1648300949045" duration="6455000" />
     </task>
     <task id="LOCAL-00001" summary="implemented user registration">
       <created>1647885066994</created>
@@ -211,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648064673439</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implementing ui (blazor)">
+      <created>1648308844536</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1648308844536</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +214,8 @@
     <MESSAGE value="implemented login and register" />
     <MESSAGE value="implementing..." />
     <MESSAGE value="created vue project stub" />
-    <option name="LAST_COMMIT_MESSAGE" value="created vue project stub" />
+    <MESSAGE value="implementing ui (blazor)" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementing ui (blazor)" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
