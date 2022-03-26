@@ -1,0 +1,66 @@
+@page "/users/registration"
+@using Otus.SocialNetwork.Web.API
+@using Otus.SocialNetwork.Web.API.Models
+@implements IDisposable
+@inject ISocialNetworkAdapter _api
+
+<PageTitle>Регистрация</PageTitle>
+
+<h1>Введите данные для регистрации</h1>
+
+<EditForm Model="_request">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <InputTextForm Id="username" Label="Username" @bind-Value="_request.Username"/>
+    <InputTextForm Label="Пароль" @bind-Value="_request.Password" type="password"/>
+    <InputTextForm Label="Имя" @bind-Value="_request.FirstName"/>
+    <InputTextForm Label="Фамилия" @bind-Value="_request.LastName"/>
+    <InputDateForm Label="День рождения" @bind-Value="_request.DateOfBirth"/>
+    <InputTextForm Label="Пол (М/Ж)" @bind-Value="_sex"/>
+    <InputTextForm Label="Интересы (через запятую)" @bind-Value="_interests"/>
+    <InputTextForm Label="Город" @bind-Value="_request.City"/>
+</EditForm>
+
+<button class="btn btn-primary" @onclick="OnButtonClick">Продолжить</button>
+
+<div>@_result</div>
+
+@code {
+    private readonly CancellationTokenSource _cts = new();
+    private readonly Register.Request _request = new();
+
+    private string _interests = string.Empty;
+    private string _sex = string.Empty;
+
+    private string _result = string.Empty;
+
+    private async Task OnButtonClick()
+    {
+        _request.Interests = _interests.Split(",")
+            .Select(text => text.Trim())
+            .ToList();
+
+        _request.Sex = _sex.ToUpper() == "М"
+            ? Sex.Male
+            : _sex.ToUpper() == "Ж"
+                ? Sex.Female
+                : null;
+
+        try
+        {
+            await _api.RegisterAsync(_request, _cts.Token);
+            _result = "Успех!";
+        }
+        catch (Exception e)
+        {
+            _result = $"Провал!: {e}";
+        }
+    }
+
+    public void Dispose()
+    {
+        _cts.Cancel();
+        _cts.Dispose();
+    }
+}

@@ -26,9 +26,9 @@ internal sealed class GetUsersQueryObject : IGetUsersQueryObject
             parameters.Add("@username", filters.Username);
         }
 
-        var sql = string.Format(
-            GetUsersSql.GET_USERS,
-            predicates);
+        var predicate = string.Join("AND", predicates.Select(predicate => $"({predicate})"));
+
+        var sql = string.Format(GetUsersSql.GET_USERS, predicate);
 
         return (sql, parameters);
     }

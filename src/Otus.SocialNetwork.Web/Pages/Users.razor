@@ -1,0 +1,55 @@
+﻿@page "/users"
+@using Otus.SocialNetwork.Web.API
+@using Otus.SocialNetwork.Web.API.Models
+@using Otus.SocialNetwork.Web.Extensions
+@implements IDisposable
+@inject ISocialNetworkAdapter _api
+
+<PageTitle>Пользователи</PageTitle>
+
+<h1>Пользователи</h1>
+
+@if (_usersResponse is null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <div class="container">
+        @foreach (var users in _usersResponse.Users.GroupBy(3))
+        {
+            <div class="row users-row">
+                @foreach (var user in users)
+                {
+                    <div class="col">
+                        <UserCard User="@user" OnFriendClick="@(() => Friend(user))"/>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}
+
+@code {
+    private readonly CancellationTokenSource _cts = new();
+
+    private GetUsers.Response? _usersResponse;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _usersResponse = await _api.GetUsersAsync(new(), _cts.Token);
+    }
+
+    private Task Friend(GetUsers.UserDto user)
+    {
+        return _api.FriendAsync(user.Username, _cts.Token);
+    }
+
+    public void Dispose()
+    {
+        _cts.Cancel();
+        _cts.Dispose();
+    }
+}

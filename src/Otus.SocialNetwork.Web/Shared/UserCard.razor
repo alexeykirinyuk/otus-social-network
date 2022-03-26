@@ -1,0 +1,76 @@
+@using Otus.SocialNetwork.Web.API.Models
+<div class="user-card card">
+    <div class="card-body">
+        <h5 class="card-title">@User.Username</h5>
+        <div class="card-text">
+            <div>Имя: @User.FirstName @User.LastName</div>
+            <div>День рождения: @User.DateOfBirth?.ToString("dd MMMM")</div>
+            <div>Возраст: @Age</div>
+            <div>Пол: @Sex</div>
+            <div>Интересы: @Interests</div>
+            <div>Город: @(User.City ?? SECRET)</div>
+            <div>Присоединился: @User.CreatedAt.ToString("dd.MM.yyyy")</div>
+        </div>
+        <button class="btn btn-primary friend-button" onclick="@OnFriendClick">Дружить</button>
+    </div>
+</div>
+
+@code {
+
+        private const string SECRET = "Секрет";
+
+    [Parameter]
+    public GetUsers.UserDto User { get; set; } = null!;
+
+    [Parameter]
+    public EventCallback OnFriendClick { get; set; }
+
+    private string Age
+    {
+        get
+        {
+            if (User.DateOfBirth is null)
+            {
+                return SECRET;
+            }
+
+            var today = DateTime.Today;
+            var birthday = User.DateOfBirth.Value;
+
+            var age = today.Year - birthday.Year;
+            if (birthday.Date > today.AddYears(-age))
+            {
+                return (age - 1).ToString();
+            }
+
+            return age.ToString();
+        }
+    }
+
+    private string Sex
+    {
+        get
+        {
+            if (User.Sex is null)
+            {
+                return SECRET;
+            }
+
+            return User.Sex == API.Models.Sex.Male ? "М" : "Ж";
+        }
+    }
+
+    private string Interests
+    {
+        get
+        {
+            if (!User.Interests.Any())
+            {
+                return SECRET;
+            }
+
+            return string.Join(", ", User.Interests);
+        }
+    }
+
+}
