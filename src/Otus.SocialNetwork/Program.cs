@@ -62,7 +62,7 @@ builder.Services.AddCors(options =>
 var app = builder.Build();
 
 var migrator = app.Services.GetRequiredService<IMigrator>();
-migrator.Migrate();
+await migrator.MigrateAsync();
 
 if (app.Environment.IsDevelopment())
 {

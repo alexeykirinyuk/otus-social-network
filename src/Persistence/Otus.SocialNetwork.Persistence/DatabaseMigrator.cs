@@ -16,12 +16,40 @@ public sealed class DatabaseMigrator : IMigrator
         _configuration = configuration;
         _logger = logger;
     }
-    
-    public void Migrate()
+
+    public async Task MigrateAsync()
     {
+        await using var cnx = new MySqlConnection(_configuration.GetConnectionString("Default"));
+
+        var counter = 0;
+        while (true)
+        {
+            try
+            {
+                await cnx.OpenAsync();
+                break;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error when open connection.");
+
+                if (counter < 10)
+                {
+                    await Task.Delay(30_000);
+                }
+                else
+                {
+                    throw;
+                }
+
+                counter++;
+            }
+        }
+        
+        _logger.LogInformation("Connected to database successfully");
+        
         try
         {
-            using var cnx = new MySqlConnection(_configuration.GetConnectionString("Default"));
             var evolve = new Evolve.Evolve(cnx, msg => _logger.LogInformation(msg))
             {
                 Locations = new[] { "Migrations" },
