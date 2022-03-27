@@ -11,7 +11,7 @@ using Otus.SocialNetwork.ViewModels;
 
 namespace Otus.SocialNetwork.Controllers;
 
-[Route("users")]
+[Route("api/users")]
 [ApiController]
 public sealed class UsersController : ControllerBase
 {
