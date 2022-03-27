@@ -20,6 +20,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		scripts\start_mysql.sh = scripts\start_mysql.sh
 		NuGet.config = NuGet.config
+		scripts\yc.sh = scripts\yc.sh
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Otus.SocialNetwork.Web", "src\Otus.SocialNetwork.Web\Otus.SocialNetwork.Web.csproj", "{4AFC36ED-8360-419A-901D-C97EAA5A3189}"
