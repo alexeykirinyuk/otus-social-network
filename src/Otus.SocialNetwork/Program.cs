@@ -1,9 +1,11 @@
-using Microsoft.AspNetCore;
+using System.Reflection;
 using Microsoft.OpenApi.Models;
 using Otus.SocialNetwork;
 using Otus.SocialNetwork.Application;
 using Otus.SocialNetwork.Infrastructure.Authorization;
 using Otus.SocialNetwork.Persistence;
+
+Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!);
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -58,6 +60,9 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+var migrator = app.Services.GetRequiredService<IMigrator>();
+migrator.Migrate();
 
 if (app.Environment.IsDevelopment())
 {

@@ -7,16 +7,24 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Dapper" Version="2.0.123" />
-      <PackageReference Include="MediatR" Version="10.0.1" />
-      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
-      <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
-      <PackageReference Include="MySql.Data" Version="8.0.28" />
-      <PackageReference Include="Scrutor" Version="4.1.0" />
+        <PackageReference Include="Dapper" Version="2.0.123" />
+        <PackageReference Include="Evolve" Version="3.0.0" />
+        <PackageReference Include="MediatR" Version="10.0.1" />
+        <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+        <PackageReference Include="MySql.Data" Version="8.0.28" />
+        <PackageReference Include="Scrutor" Version="4.1.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Otus.SocialNetwork.Persistence.Abstranctions\Otus.SocialNetwork.Persistence.Abstranctions.csproj" />
+        <ProjectReference Include="..\Otus.SocialNetwork.Persistence.Abstranctions\Otus.SocialNetwork.Persistence.Abstranctions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="Migrations\**\*.sql">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
     </ItemGroup>
 
 </Project>

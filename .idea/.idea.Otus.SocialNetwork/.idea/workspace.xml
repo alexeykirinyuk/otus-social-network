@@ -8,9 +8,17 @@
     <projectFile profileName="IIS Express">src/temp/temp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="implemented docker compose">
+    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="add api prefix">
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/DatabaseMigrator.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/IMigrator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources/43dae6a2-47e4-4a8a-9254-9d343dee24b7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/dataSources/43dae6a2-47e4-4a8a-9254-9d343dee24b7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Otus.SocialNetwork.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Otus.SocialNetwork.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/start_mysql.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/start_mysql.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Otus.SocialNetwork.Persistence.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/Otus.SocialNetwork.Persistence.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/PersistenceModule.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/Otus.SocialNetwork.Persistence/PersistenceModule.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,14 +37,16 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5c683a2be10717e8b4ddd0ce1336a39434791237a2dc7d50b56b2be7f/Evolve.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1774eb4a4b8983b4c9f69624f3883a4c617b7e95e8f384c4bf7cda1ecc09f86/RuntimeType.ActivatorCache.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b6e6a47179af0cc67d5434bad6aca4c7b77f9b7ba6b4a67bed78c8d3b9e80/AuthorizationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/da7bfdc0748e4c23b7765b6c8583d3a2b55200/0d/7cc234f5/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86accab51324475881a60af4440a78ce357e00/0d/81b1119d/ConnectionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86accab51324475881a60af4440a78ce357e00/7c/e6b7778c/IDbTransaction.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bebd253e21dcf766929bfdfd74615bfe46e6e1693b289273dbdb82152893/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1ac3bf8d279e4572a77c8002c0c830f1171c00/e0/be7f3209/MySqlConnection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b6e6a47179af0cc67d5434bad6aca4c7b77f9b7ba6b4a67bed78c8d3b9e80/AuthorizationMiddleware.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86accab51324475881a60af4440a78ce357e00/0d/81b1119d/ConnectionState.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/90f759db8113d19fb412ddf678b2a5d6d243ed115611175dadd1bcb89eee4f/TaskAwaiter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///Users/a.kirinyuk/RiderProjects/Otus.SocialNetwork/src/Otus.SocialNetwork/Controllers/UsersController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8755a08a8a98cce2ddc0d6eb1bf2273566513b1a2477a6b8eed967ad8277b16/HandlerBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/da7bfdc0748e4c23b7765b6c8583d3a2b55200/10/6a0c4385/RuntimeType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/86accab51324475881a60af4440a78ce357e00/c4/503db4a8/DbConnectionStringBuilder.cs" root0="SKIP_HIGHLIGHTING" />
@@ -130,7 +140,7 @@
       <workItem from="1648064213078" duration="1998000" />
       <workItem from="1648290596204" duration="9209000" />
       <workItem from="1648300949045" duration="7358000" />
-      <workItem from="1648378167135" duration="15755000" />
+      <workItem from="1648378167135" duration="17847000" />
     </task>
     <task id="LOCAL-00001" summary="implemented user registration">
       <created>1647885066994</created>
@@ -230,7 +240,28 @@
       <option name="project" value="LOCAL" />
       <updated>1648410329384</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add api header">
+      <created>1648410900373</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1648410900373</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add api header">
+      <created>1648410904352</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1648410904352</updated>
+    </task>
+    <task id="LOCAL-00017" summary="add api prefix">
+      <created>1648411183117</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1648411183117</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,7 +297,9 @@
     <MESSAGE value="fix chmod" />
     <MESSAGE value="set up internal database for stg" />
     <MESSAGE value="implemented docker compose" />
-    <option name="LAST_COMMIT_MESSAGE" value="implemented docker compose" />
+    <MESSAGE value="add api header" />
+    <MESSAGE value="add api prefix" />
+    <option name="LAST_COMMIT_MESSAGE" value="add api prefix" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

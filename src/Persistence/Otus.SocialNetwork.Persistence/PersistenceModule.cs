@@ -11,6 +11,7 @@ public static class PersistenceModule
     public static IServiceCollection AddPersistenceModule(
         this IServiceCollection services)
     {
+        services.AddSingleton<IMigrator, DatabaseMigrator>();
         services.AddScoped<IUnitOfWorkFactory, UnitOfWorkFactory>();
         services.AddScoped<IDbConnection>(provider =>
         {

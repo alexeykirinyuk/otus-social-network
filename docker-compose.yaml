@@ -6,7 +6,6 @@ services:
       - MYSQL_DATABASE=otus_social_network
       - MYSQL_ROOT_PASSWORD=mysql
     volumes:
-      - ./src/Persistence/Otus.SocialNetwork.Persistence/Migrations:/docker-entrypoint-initdb.d/
       - ./../mysql:/var/lib/mysql
   backend:
     build:
