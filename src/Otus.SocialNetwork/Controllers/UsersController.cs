@@ -1,9 +1,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Otus.SocialNetwork.Application.Features.Users.AddFriend;
+using Otus.SocialNetwork.Application.Features.Users.BeFriends;
 using Otus.SocialNetwork.Application.Features.Users.GetUserPasswordHash;
 using Otus.SocialNetwork.Application.Features.Users.GetUsers;
 using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
+using Otus.SocialNetwork.Application.Features.Users.StopBeingFriends;
 using Otus.SocialNetwork.Exceptions;
 using Otus.SocialNetwork.Infrastructure.Authorization;
 using Otus.SocialNetwork.ViewModels;
@@ -77,7 +78,14 @@ public sealed class UsersController : ControllerBase
     [CustomAuthorize]
     public Task Friend([FromBody] FriendRequest request, CancellationToken ct)
     {
-        return _mediator.Send(new AddFriendCommand(CurrentUsername, request.FriendUsername), ct);
+        return _mediator.Send(new BeFriendsCommand(CurrentUsername, request.FriendUsername), ct);
+    }
+
+    [HttpDelete("friend")]
+    [CustomAuthorize]
+    public Task Unfriend([FromBody] UnfriendRequest request, CancellationToken ct)
+    {
+        return _mediator.Send(new StopBeingFriendsCommand(CurrentUsername, request.FriendUsername), ct);
     }
 
     private string CurrentUsername

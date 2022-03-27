@@ -34,33 +34,48 @@ public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
 
     public async Task<GetUsers.Response> GetUsersAsync(GetUsers.Request request, CancellationToken ct)
     {
-        var jwt = await _localStorage.GetItemAsync<string>("jwt");
-
-        var requestMessage = new HttpRequestMessage(
+        var response = await MakeRequest(
             HttpMethod.Get,
-            "/users");
-        requestMessage.Headers.Add("Authorization", $"Bearer {jwt}");
+            "/users",
+            null,
+            ct);
 
-        var responseMessage = await _httpClient.SendAsync(requestMessage, ct);
-
-        responseMessage.EnsureSuccessStatusCode();
-
-        var result = await responseMessage.Content.ReadFromJsonAsync<GetUsers.Response>(cancellationToken: ct);
+        var result = await response.Content.ReadFromJsonAsync<GetUsers.Response>(cancellationToken: ct);
         return result ?? throw ResponseCantBeNullException();
     }
 
-    public async Task FriendAsync(string friendUsername, CancellationToken ct)
+    public Task BeFriendsAsync(string friendUsername, CancellationToken ct)
+    {
+        return MakeRequest(HttpMethod.Put, "/users/friend", new BeFriends.Request(friendUsername), ct);
+    }
+
+    public Task StopBeingFriendsAsync(string friendUsername, CancellationToken ct)
+    {
+        return MakeRequest(HttpMethod.Delete, "/users/friend", new StopBeingFriends.Request(friendUsername), ct);
+    }
+
+    private async Task<HttpResponseMessage> MakeRequest(
+        HttpMethod method,
+        string path,
+        object? body,
+        CancellationToken ct)
     {
         var jwt = await _localStorage.GetItemAsync<string>("jwt");
 
         var requestMessage = new HttpRequestMessage(
-            HttpMethod.Put,
-            "/users/friend");
+            method,
+            path);
         requestMessage.Headers.Add("Authorization", $"Bearer {jwt}");
-        requestMessage.Content = JsonContent.Create(new Friend.Request(friendUsername));
+
+        if (body is not null)
+        {
+            requestMessage.Content = JsonContent.Create(body);
+        }
 
         var responseMessage = await _httpClient.SendAsync(requestMessage, ct);
         responseMessage.EnsureSuccessStatusCode();
+
+        return responseMessage;
     }
 
     private static InvalidOperationException ResponseCantBeNullException()

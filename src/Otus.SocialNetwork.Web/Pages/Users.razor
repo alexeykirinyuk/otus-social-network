@@ -24,7 +24,10 @@ else
                 @foreach (var user in users)
                 {
                     <div class="col">
-                        <UserCard User="@user" OnFriendClick="@(() => Friend(user))"/>
+                        <UserCard
+                            User="@user"
+                            OnFriendClick="@(() => BeFriends(user))"
+                            OnUnfriendClick="@(() => StopBeingFriends(user))"/>
                     </div>
                 }
             </div>
@@ -42,9 +45,14 @@ else
         _usersResponse = await _api.GetUsersAsync(new(), _cts.Token);
     }
 
-    private Task Friend(GetUsers.UserDto user)
+    private Task BeFriends(GetUsers.UserDto user)
     {
-        return _api.FriendAsync(user.Username, _cts.Token);
+        return _api.BeFriendsAsync(user.Username, _cts.Token);
+    }
+
+    private Task StopBeingFriends(GetUsers.UserDto user)
+    {
+        return _api.StopBeingFriendsAsync(user.Username, _cts.Token);
     }
 
     public void Dispose()

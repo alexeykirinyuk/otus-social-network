@@ -1,16 +1,15 @@
 using MediatR;
 using Otus.SocialNetwork.Application.Exceptions;
-using Otus.SocialNetwork.Domain;
 using Otus.SocialNetwork.Persistence.Abstranctions;
 
-namespace Otus.SocialNetwork.Application.Features.Users.AddFriend;
+namespace Otus.SocialNetwork.Application.Features.Users.BeFriends;
 
-public sealed class AddFriendCommandHandler : IRequestHandler<AddFriendCommand>
+public sealed class BeFriendsCommandHandler : IRequestHandler<BeFriendsCommand>
 {
     private readonly IGetUsersQueryObject _getUsersQueryObject;
     private readonly ISaveUserQueryObject _saveUserQueryObject;
 
-    public AddFriendCommandHandler(
+    public BeFriendsCommandHandler(
         IGetUsersQueryObject getUsersQueryObject,
         ISaveUserQueryObject saveUserQueryObject)
     {
@@ -18,7 +17,7 @@ public sealed class AddFriendCommandHandler : IRequestHandler<AddFriendCommand>
         _saveUserQueryObject = saveUserQueryObject;
     }
 
-    public async Task<Unit> Handle(AddFriendCommand request, CancellationToken ct)
+    public async Task<Unit> Handle(BeFriendsCommand request, CancellationToken ct)
     {
         var user = await _getUsersQueryObject
             .SingleOrDefaultAsync(
@@ -41,7 +40,7 @@ public sealed class AddFriendCommandHandler : IRequestHandler<AddFriendCommand>
             throw new UserNotFoundException(request.NewFriendUsername);
         }
         
-        user.AddFriend(Friend.Create(friendUser));
+        user.BeFriends(friendUser);
 
         await _saveUserQueryObject.SaveAsync(user, ct);
         

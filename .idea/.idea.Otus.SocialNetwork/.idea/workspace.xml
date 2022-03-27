@@ -8,15 +8,17 @@
     <projectFile profileName="IIS Express">src/temp/temp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="implementing ui (blazor)">
+    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/StopBeingFriends/StopBeingFriendsCommand.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/ViewModels/UnfriendRequest.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/Dtos/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/Dtos/UserDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQuery.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQuery.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/GetUsers/GetUsersQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/GetUsers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/GetUsers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/BeFriends/BeFriendsCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/AddFriend/AddFriendCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Application/Features/Users/BeFriends/BeFriendsCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Domain/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Domain/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/ISocialNetworkAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/ISocialNetworkAdapter.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/Friend.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/Models/BeFriends.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/SocialNetworkAdapter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/API/SocialNetworkAdapter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Shared/UserCard.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Shared/UserCard.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Pages/Users.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork.Web/Pages/Users.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Controllers/UsersController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -135,7 +137,8 @@
       <workItem from="1648054351189" duration="4737000" />
       <workItem from="1648064213078" duration="1998000" />
       <workItem from="1648290596204" duration="9209000" />
-      <workItem from="1648300949045" duration="6455000" />
+      <workItem from="1648300949045" duration="7358000" />
+      <workItem from="1648378167135" duration="427000" />
     </task>
     <task id="LOCAL-00001" summary="implemented user registration">
       <created>1647885066994</created>
@@ -186,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648308844536</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="implementing friends">
+      <created>1648309585369</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1648309585369</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +225,8 @@
     <MESSAGE value="implementing..." />
     <MESSAGE value="created vue project stub" />
     <MESSAGE value="implementing ui (blazor)" />
-    <option name="LAST_COMMIT_MESSAGE" value="implementing ui (blazor)" />
+    <MESSAGE value="implementing friends" />
+    <option name="LAST_COMMIT_MESSAGE" value="implementing friends" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

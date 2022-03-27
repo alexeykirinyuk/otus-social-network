@@ -65,13 +65,20 @@ public sealed class User
             DateTime.UtcNow);
     }
 
-    public void AddFriend(Friend newFriend)
+    public void BeFriends(User user)
     {
-        if (Friends.Any(currentFriend => currentFriend.Username == newFriend.Username))
+        if (Friends.Any(currentFriend => currentFriend.Username == user.Username))
         {
             return;
         }
 
-        Friends = Friends.Append(newFriend).ToArray();
+        Friends = Friends.Append(Friend.Create(user)).ToArray();
+    }
+
+    public void StopBeingFriends(User user)
+    {
+        Friends = Friends
+            .Where(friend => friend.Username != user.Username)
+            .ToArray();
     }
 }

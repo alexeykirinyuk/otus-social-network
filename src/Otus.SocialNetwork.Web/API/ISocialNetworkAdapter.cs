@@ -10,5 +10,7 @@ public interface ISocialNetworkAdapter
 
     Task<GetUsers.Response> GetUsersAsync(GetUsers.Request request, CancellationToken ct);
 
-    Task FriendAsync(string friendUsername, CancellationToken ct);
+    Task BeFriendsAsync(string friendUsername, CancellationToken ct);
+
+    Task StopBeingFriendsAsync(string friendUsername, CancellationToken ct);
 }
