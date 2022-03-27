@@ -64,8 +64,15 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwagger(c =>
+{
+    c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
+});
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Otus Social network v1");
+    c.RoutePrefix = "api/swagger";
+});
 
 app.UseMiddleware<CustomAuthorizationMiddleware>();
 
