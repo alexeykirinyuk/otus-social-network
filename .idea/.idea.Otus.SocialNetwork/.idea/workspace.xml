@@ -8,7 +8,12 @@
     <projectFile profileName="IIS Express">src/temp/temp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="fixing stagin env" />
+    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="fix chmod">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scripts/yc.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/yc.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.Staging.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.Staging.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +66,7 @@
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C#" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Compound.Application">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Otus.SocialNetwork">
     <configuration name="Application" type="CompoundRunConfigurationType">
       <toRun name="Otus.SocialNetwork" type="LaunchSettings" />
       <toRun name="Otus.SocialNetwork.Web" type="LaunchSettings" />
@@ -127,7 +132,7 @@
       <workItem from="1648064213078" duration="1998000" />
       <workItem from="1648290596204" duration="9209000" />
       <workItem from="1648300949045" duration="7358000" />
-      <workItem from="1648378167135" duration="8866000" />
+      <workItem from="1648378167135" duration="10823000" />
     </task>
     <task id="LOCAL-00001" summary="implemented user registration">
       <created>1647885066994</created>
@@ -206,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648399631715</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fix chmod">
+      <created>1648399693077</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1648399693077</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,7 +251,8 @@
     <MESSAGE value="implemented friend/unfriend" />
     <MESSAGE value="try to deploy app" />
     <MESSAGE value="fixing stagin env" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixing stagin env" />
+    <MESSAGE value="fix chmod" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix chmod" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
