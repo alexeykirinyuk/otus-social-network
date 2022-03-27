@@ -8,13 +8,7 @@
     <projectFile profileName="IIS Express">src/temp/temp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="try to deploy app">
-      <change afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.Staging.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Otus.SocialNetwork/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/yc.sh" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/yc.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.Development.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.Development.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/Otus.SocialNetwork/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="1e491314-af31-40b8-b1eb-2c8557d6b58e" name="Changes" comment="fixing stagin env" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -133,7 +127,7 @@
       <workItem from="1648064213078" duration="1998000" />
       <workItem from="1648290596204" duration="9209000" />
       <workItem from="1648300949045" duration="7358000" />
-      <workItem from="1648378167135" duration="8561000" />
+      <workItem from="1648378167135" duration="8866000" />
     </task>
     <task id="LOCAL-00001" summary="implemented user registration">
       <created>1647885066994</created>
@@ -205,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1648397563248</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="fixing stagin env">
+      <created>1648399631715</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1648399631715</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +238,8 @@
     <MESSAGE value="implementing friends" />
     <MESSAGE value="implemented friend/unfriend" />
     <MESSAGE value="try to deploy app" />
-    <option name="LAST_COMMIT_MESSAGE" value="try to deploy app" />
+    <MESSAGE value="fixing stagin env" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixing stagin env" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
