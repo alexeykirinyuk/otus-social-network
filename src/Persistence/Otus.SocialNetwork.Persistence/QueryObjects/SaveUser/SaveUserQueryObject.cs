@@ -21,6 +21,8 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
 
         await SaveInterestsAsync(user, ct);
 
+        await SaveFriendsAsync(user, ct);
+
         await _db.ExecuteAsync(new(
             SaveUsersSql.INSERT_OR_UPDATE_USER,
             new
@@ -75,7 +77,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
         var currentInterests = (await _db.QueryAsync<InterestRecord>(
                 new(
                     SaveUsersSql.GET_USER_INTERESTS,
-                    new {username = user.Username},
+                    new { username = user.Username },
                     cancellationToken: ct)))
             .AsList();
 
@@ -89,7 +91,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
             await _db.ExecuteAsync(
                 new(
                     SaveUsersSql.DELETE_USER_INTERESTS,
-                    new {userId = user.Username, interestIds = interestsToRemove},
+                    new { userId = user.Username, interestIds = interestsToRemove },
                     cancellationToken: ct));
         }
 
@@ -109,7 +111,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
         CancellationToken ct)
     {
         var userInterestsToInsert = (await _db.QueryAsync<InterestRecord>(
-                new(SaveUsersSql.GET_INTERESTS_BY_NAMES, new {names = newUserInterestNames},
+                new(SaveUsersSql.GET_INTERESTS_BY_NAMES, new { names = newUserInterestNames },
                     cancellationToken: ct)))
             .ToList();
 
@@ -120,7 +122,7 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
         foreach (var notFoundInterest in notFoundInterestEntities)
         {
             var newInterestId = await _db.QuerySingleAsync<long>(
-                new(SaveUsersSql.ADD_INTEREST, new {name = notFoundInterest}, cancellationToken: ct));
+                new(SaveUsersSql.ADD_INTEREST, new { name = notFoundInterest }, cancellationToken: ct));
 
             userInterestsToInsert.Add(new InterestRecord
             {
@@ -138,14 +140,63 @@ public sealed class SaveUserQueryObject : ISaveUserQueryObject
 
             var parameters = new DynamicParameters();
             parameters.Add("@username", user.Username);
-            foreach (var (index, userInterest) in userInterestsToInsert.Select((userInterest, index) =>
-                         (index, userInterest)))
+
+            for (var i = 0; i < userInterestsToInsert.Count; i++)
             {
-                parameters.Add($"@interestId{index}", userInterest.Id);
+                parameters.Add($"@interestId{i}", userInterestsToInsert[i].Id);
             }
 
             await _db.ExecuteAsync(
                 new(query, parameters, cancellationToken: ct));
+        }
+    }
+
+    private async Task SaveFriendsAsync(User user, CancellationToken ct)
+    {
+        var currentFriends = (await _db.QueryAsync<FriendRecord>(new(
+                SaveUsersSql.GET_FRIENDS_BY_USERNAME,
+                new { username = user.Username },
+                cancellationToken: ct)
+            ))
+            .AsList();
+
+        var currentFriendUsernames = currentFriends.Select(friend => friend.FriendUsername).ToArray();
+        var newFriendUsernames = user.Friends.Select(friend => friend.Username).ToArray();
+
+        var friendsToDelete = currentFriendUsernames
+            .Except(newFriendUsernames)
+            .ToArray();
+
+        var friendsToInsert = newFriendUsernames
+            .Except(currentFriendUsernames)
+            .ToArray();
+
+        if (friendsToDelete.Any())
+        {
+            await _db.ExecuteAsync(new(
+                SaveUsersSql.DELETE_USER_FRIENDS,
+                new { username = user.Username, friendUsernames = friendsToDelete },
+                cancellationToken: ct));
+        }
+
+        if (friendsToInsert.Any())
+        {
+            var query = string.Format(
+                SaveUsersSql.ADD_FRIENDS,
+                string.Join(",", friendsToInsert.Select((_, ind) => $"(@username, @friendUsername{ind})"))
+            );
+            
+            var parameters = new DynamicParameters();
+            parameters.Add("@username", user.Username);
+            for (var i = 0; i < friendsToInsert.Length; i++)
+            {
+                parameters.Add($"@friendUsername{i}", friendsToInsert[i]);
+            }
+
+            await _db.ExecuteAsync(new(
+                query,
+                parameters,
+                cancellationToken: ct));
         }
     }
 }

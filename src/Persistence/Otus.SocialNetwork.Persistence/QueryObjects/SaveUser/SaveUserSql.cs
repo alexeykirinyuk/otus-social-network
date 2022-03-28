@@ -54,8 +54,19 @@ INSERT INTO user_interest (username, interest_id)
 VALUES {0};
 ";
 
+    public const string GET_FRIENDS_BY_USERNAME = @"
+SELECT user_username, friend_username
+FROM friend
+WHERE user_username = @username
+";
+
     public const string ADD_FRIENDS = @"
 INSERT INTO friend (user_username, friend_username)
 VALUES {0};
+";
+    
+    public const string DELETE_USER_FRIENDS = @"
+DELETE FROM friend
+WHERE user_username = @username AND friend_username IN @friendUsernames;
 ";
 }
