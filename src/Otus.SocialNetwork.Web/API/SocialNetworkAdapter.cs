@@ -20,13 +20,13 @@ public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
 
     public Task RegisterAsync(Register.Request request, CancellationToken ct)
     {
-        return _httpClient.PostAsJsonAsync("/users/register", request, ct);
+        return _httpClient.PostAsJsonAsync("/api/users/register", request, ct);
     }
 
     public async Task<Login.Response> LoginAsync(string username, string password, CancellationToken ct)
     {
         var request = new Login.Request(username, password);
-        var responseMessage = await _httpClient.PostAsJsonAsync("/users/login", request, ct);
+        var responseMessage = await _httpClient.PostAsJsonAsync("/api/users/login", request, ct);
 
         return await responseMessage.Content.ReadFromJsonAsync<Login.Response>(cancellationToken: ct)
                ?? throw ResponseCantBeNullException();
@@ -36,7 +36,7 @@ public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
     {
         var response = await MakeRequest(
             HttpMethod.Get,
-            "/users",
+            "/api/users",
             null,
             ct);
 
@@ -46,12 +46,12 @@ public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
 
     public Task BeFriendsAsync(string friendUsername, CancellationToken ct)
     {
-        return MakeRequest(HttpMethod.Put, "/users/friend", new BeFriends.Request(friendUsername), ct);
+        return MakeRequest(HttpMethod.Put, "/api/users/friend", new BeFriends.Request(friendUsername), ct);
     }
 
     public Task StopBeingFriendsAsync(string friendUsername, CancellationToken ct)
     {
-        return MakeRequest(HttpMethod.Delete, "/users/friend", new StopBeingFriends.Request(friendUsername), ct);
+        return MakeRequest(HttpMethod.Delete, "/api/users/friend", new StopBeingFriends.Request(friendUsername), ct);
     }
 
     private async Task<HttpResponseMessage> MakeRequest(
