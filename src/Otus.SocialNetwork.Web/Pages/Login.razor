@@ -1,10 +1,8 @@
 @page "/users/login"
-@using Otus.SocialNetwork.Web.API
 @using System.ComponentModel.DataAnnotations
-@using Otus.SocialNetwork.Web.Utils
+@using Otus.SocialNetwork.Web.States
 @implements IDisposable
-@inject ISocialNetworkAdapter _api
-@inject ILocalStorage _localStorage;
+@inject IAuthenticationState _authenticationState;
 
 <PageTitle>Вход в систему</PageTitle>
 
@@ -37,8 +35,7 @@
     {
         try
         {
-            var response = await _api.LoginAsync(Username, Password, _cts.Token);
-            await _localStorage.SetItemAsync("jwt", response.Token);
+            await _authenticationState.LogIn(Username, Password, _cts.Token);
             _result = "Успех!";
         }
         catch (Exception e)

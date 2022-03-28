@@ -3,6 +3,7 @@
 @using Otus.SocialNetwork.Web.API.Models
 @implements IDisposable
 @inject ISocialNetworkAdapter _api
+@inject NavigationManager _navigation
 
 <PageTitle>Регистрация</PageTitle>
 
@@ -50,7 +51,7 @@
         try
         {
             await _api.RegisterAsync(_request, _cts.Token);
-            _result = "Успех!";
+            _navigation.NavigateTo("/users");
         }
         catch (Exception e)
         {

@@ -13,4 +13,6 @@ public interface ISocialNetworkAdapter
     Task BeFriendsAsync(string friendUsername, CancellationToken ct);
 
     Task StopBeingFriendsAsync(string friendUsername, CancellationToken ct);
+
+    Task<bool> IsLoggedIn(CancellationToken ct);
 }

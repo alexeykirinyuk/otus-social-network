@@ -1,21 +1,20 @@
 using System.Net.Http.Json;
-using System.Text.Json;
 using Otus.SocialNetwork.Web.API.Models;
-using Otus.SocialNetwork.Web.Utils;
+using Otus.SocialNetwork.Web.Storages;
 
 namespace Otus.SocialNetwork.Web.API;
 
 public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
 {
     private readonly HttpClient _httpClient;
-    private readonly ILocalStorage _localStorage;
+    private readonly ITokenStorage _tokenStorage;
 
     public SocialNetworkAdapter(
         HttpClient httpClient,
-        ILocalStorage localStorage)
+        ITokenStorage tokenStorage)
     {
         _httpClient = httpClient;
-        _localStorage = localStorage;
+        _tokenStorage = tokenStorage;
     }
 
     public Task RegisterAsync(Register.Request request, CancellationToken ct)
@@ -30,6 +29,26 @@ public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
 
         return await responseMessage.Content.ReadFromJsonAsync<Login.Response>(cancellationToken: ct)
                ?? throw ResponseCantBeNullException();
+    }
+
+    public async Task<bool> IsLoggedIn(CancellationToken ct)
+    {
+        try
+        {
+            var response = await MakeRequest(
+                HttpMethod.Get,
+                "/api/users/username",
+                null,
+                ct);
+            response.EnsureSuccessStatusCode();
+            var username = await response.Content.ReadAsStringAsync(ct);
+
+            return !string.IsNullOrWhiteSpace(username);
+        }
+        catch
+        {
+            return false;
+        }
     }
 
     public async Task<GetUsers.Response> GetUsersAsync(GetUsers.Request request, CancellationToken ct)
@@ -60,7 +79,7 @@ public sealed class SocialNetworkAdapter : ISocialNetworkAdapter
         object? body,
         CancellationToken ct)
     {
-        var jwt = await _localStorage.GetItemAsync<string>("jwt");
+        var jwt = await _tokenStorage.Get(ct);
 
         var requestMessage = new HttpRequestMessage(
             method,

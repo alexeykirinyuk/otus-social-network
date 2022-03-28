@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Otus.SocialNetwork.Web;
 using Otus.SocialNetwork.Web.API;
-using Otus.SocialNetwork.Web.Utils;
+using Otus.SocialNetwork.Web.States;
+using Otus.SocialNetwork.Web.Storages;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
@@ -13,7 +14,10 @@ baseUrl = string.IsNullOrWhiteSpace(baseUrl) ? builder.HostEnvironment.BaseAddre
 
 builder.Services.AddScoped((_) => new HttpClient { BaseAddress = new Uri(baseUrl) });
 
-builder.Services.AddScoped<ISocialNetworkAdapter, SocialNetworkAdapter>();
-builder.Services.AddScoped<ILocalStorage, LocalStorage>();
+builder.Services.AddSingleton<ISocialNetworkAdapter, SocialNetworkAdapter>();
+builder.Services.AddSingleton<ILocalStorage, LocalStorage>();
+builder.Services.AddSingleton<ITokenStorage, TokenStorage>();
+
+builder.Services.AddSingleton<IAuthenticationState, AuthenticationState>();
 
 await builder.Build().RunAsync();

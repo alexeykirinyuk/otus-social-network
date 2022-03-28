@@ -2,8 +2,10 @@
 @using Otus.SocialNetwork.Web.API
 @using Otus.SocialNetwork.Web.API.Models
 @using Otus.SocialNetwork.Web.Extensions
+@using Otus.SocialNetwork.Web.States
 @implements IDisposable
 @inject ISocialNetworkAdapter _api
+@inject IAuthenticationState _authentication
 
 <PageTitle>Пользователи</PageTitle>
 
@@ -42,17 +44,24 @@ else
 
     protected override async Task OnInitializedAsync()
     {
+        if (await _authentication.RedirectIfNotAuthorized(_cts.Token))
+        {
+            return;
+        }
+
         _usersResponse = await _api.GetUsersAsync(new(), _cts.Token);
     }
 
-    private Task BeFriends(GetUsers.UserDto user)
+    private async Task BeFriends(GetUsers.UserDto user)
     {
-        return _api.BeFriendsAsync(user.Username, _cts.Token);
+        await _api.BeFriendsAsync(user.Username, _cts.Token);
+        _usersResponse = await _api.GetUsersAsync(new(), _cts.Token);
     }
 
-    private Task StopBeingFriends(GetUsers.UserDto user)
+    private async Task StopBeingFriends(GetUsers.UserDto user)
     {
-        return _api.StopBeingFriendsAsync(user.Username, _cts.Token);
+        await _api.StopBeingFriendsAsync(user.Username, _cts.Token);
+        _usersResponse = await _api.GetUsersAsync(new(), _cts.Token);
     }
 
     public void Dispose()
@@ -60,4 +69,5 @@ else
         _cts.Cancel();
         _cts.Dispose();
     }
+
 }

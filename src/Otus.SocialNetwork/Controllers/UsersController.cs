@@ -88,6 +88,13 @@ public sealed class UsersController : ControllerBase
         return _mediator.Send(new StopBeingFriendsCommand(CurrentUsername, request.FriendUsername), ct);
     }
 
+    [HttpGet("username")]
+    [CustomAuthorize]
+    public string GetUsername()
+    {
+        return CurrentUsername;
+    }
+
     private string CurrentUsername
     {
         get
