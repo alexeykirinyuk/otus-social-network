@@ -7,7 +7,7 @@ using Otus.SocialNetwork.Infrastructure.Authorization;
 namespace Otus.SocialNetwork.Controllers;
 
 [ApiController]
-[Route("test")]
+[Route("api/test")]
 public sealed class TestController : ControllerBase
 {
     private readonly IServiceProvider _provider;
