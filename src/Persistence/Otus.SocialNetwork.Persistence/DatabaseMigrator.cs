@@ -32,22 +32,14 @@ public sealed class DatabaseMigrator : IMigrator
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Error when open connection.");
-
-                if (counter < 10)
-                {
-                    await Task.Delay(2_000);
-                }
-                else
-                {
-                    throw;
-                }
+                await Task.Delay(2_000);
 
                 counter++;
             }
         }
-        
+
         _logger.LogInformation("Connected to database successfully");
-        
+
         try
         {
             var evolve = new Evolve.Evolve(cnx, msg => _logger.LogInformation(msg))
@@ -58,7 +50,8 @@ public sealed class DatabaseMigrator : IMigrator
 
             evolve.Migrate();
         }
-        catch (Exception ex)
+        catch
+            (Exception ex)
         {
             _logger.LogCritical(ex, "Database migration failed.");
             throw;
