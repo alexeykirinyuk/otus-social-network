@@ -35,7 +35,7 @@ public sealed class DatabaseMigrator : IMigrator
 
                 if (counter < 10)
                 {
-                    await Task.Delay(30_000);
+                    await Task.Delay(2_000);
                 }
                 else
                 {
