@@ -72,12 +72,17 @@ public sealed class UsersController : ControllerBase
     public Task<GetUsersQueryResult> Get(
         [FromQuery] string? firstNamePrefix,
         [FromQuery] string? lastNamePrefix,
+        [FromQuery] long? offset,
+        [FromQuery] int? limit,
         CancellationToken ct)
     {
         var query = new GetUsersQuery(
             CurrentUsername,
             firstNamePrefix,
-            lastNamePrefix);
+            lastNamePrefix,
+            offset,
+            limit
+        );
 
         return _mediator.Send(query, ct);
     }

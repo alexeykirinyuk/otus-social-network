@@ -7,6 +7,7 @@ SELECT username, first_name, last_name, date_of_birth, sex, city_id, password_ha
 FROM user
 {0}
 ORDER BY username DESC
+{1}
 ";
     
     public const string GET_USERS_COUNT = @"

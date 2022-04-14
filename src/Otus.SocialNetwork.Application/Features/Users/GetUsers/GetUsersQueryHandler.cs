@@ -17,7 +17,7 @@ public sealed class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, GetUse
     public async Task<GetUsersQueryResult> Handle(GetUsersQuery request, CancellationToken cancellationToken)
     {
         var currentUser = await _getUsersQueryObject.SingleOrDefaultAsync(
-            new GetUsersFilters { Username = request.CurrentUserUsername },
+            new GetUsersParams { Username = request.CurrentUserUsername },
             cancellationToken);
 
         if (currentUser is null)
@@ -29,13 +29,15 @@ public sealed class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, GetUse
             .Select(friend => friend.Username)
             .ToHashSet();
 
-        var filters = new GetUsersFilters
+        var @params = new GetUsersParams
         {
             FirstNamePrefix = request.FirstNamePrefix,
-            LastNamePrefix = request.LastNamePrefix
+            LastNamePrefix = request.LastNamePrefix,
+            Offset = request.Offset,
+            Limit = request.Limit
         };
         var users = await _getUsersQueryObject.ToListAsync(
-            filters,
+            @params,
             cancellationToken);
 
         var userDtos = users

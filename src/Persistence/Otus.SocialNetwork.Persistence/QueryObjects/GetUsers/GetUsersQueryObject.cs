@@ -16,39 +16,55 @@ internal sealed class GetUsersQueryObject : IGetUsersQueryObject
         _db = db;
     }
 
-    private static (string Sql, object Parameters) BuildQuery(GetUsersFilters? filters)
+    private static (string Sql, object Parameters) BuildQuery(GetUsersParams? @params)
     {
         var predicates = new List<string>();
         var parameters = new DynamicParameters();
 
-        if (filters?.Username is not null)
+        if (@params?.Username is not null)
         {
             predicates.Add("username = @username");
-            parameters.Add("@username", filters.Username);
+            parameters.Add("@username", @params.Username);
         }
 
-        if (filters?.LastNamePrefix is not null)
+        if (@params?.LastNamePrefix is not null)
         {
             predicates.Add("last_name LIKE @lastName");
-            parameters.Add("@lastName", $"{filters.LastNamePrefix}%");
+            parameters.Add("@lastName", $"{@params.LastNamePrefix}%");
         }
 
-        if (filters?.FirstNamePrefix is not null)
+        if (@params?.FirstNamePrefix is not null)
         {
             predicates.Add("first_name LIKE @firstName");
-            parameters.Add("@firstName", $"{filters.FirstNamePrefix}%");
+            parameters.Add("@firstName", $"{@params.FirstNamePrefix}%");
         }
 
         var wherePredicate = predicates.Any()
-            ? "WHERE " + string.Join("AND", predicates.Select(predicate => $"({predicate})"))
+            ? "WHERE " + string.Join(" AND ", predicates.Select(predicate => $"({predicate})"))
             : string.Empty;
 
-        var sql = string.Format(GetUsersSql.GET_USERS, wherePredicate);
+        var limitOffsetList = new List<string>();
+
+        if (@params?.Limit is not null)
+        {
+            limitOffsetList.Add("LIMIT @limit");
+            parameters.Add("@limit", @params.Limit.Value);
+        }
+        
+        if (@params?.Offset is not null)
+        {
+            limitOffsetList.Add("OFFSET @offset");
+            parameters.Add("@offset", @params.Offset.Value);
+        }
+
+        var limitOffset = string.Join(" ", limitOffsetList);
+
+        var sql = string.Format(GetUsersSql.GET_USERS, wherePredicate, limitOffset);
 
         return (sql, parameters);
     }
 
-    public async Task<IReadOnlyList<User>> ToListAsync(GetUsersFilters? filters, CancellationToken ct)
+    public async Task<IReadOnlyList<User>> ToListAsync(GetUsersParams? filters, CancellationToken ct)
     {
         var query = BuildQuery(filters);
 
@@ -79,7 +95,7 @@ internal sealed class GetUsersQueryObject : IGetUsersQueryObject
             .ToArray();
     }
 
-    public async Task<User?> SingleOrDefaultAsync(GetUsersFilters? filters, CancellationToken ct)
+    public async Task<User?> SingleOrDefaultAsync(GetUsersParams? filters, CancellationToken ct)
     {
         var query = BuildQuery(filters);
 

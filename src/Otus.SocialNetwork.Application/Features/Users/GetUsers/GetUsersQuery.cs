@@ -8,5 +8,7 @@ namespace Otus.SocialNetwork.Application.Features.Users.GetUsers;
 public sealed record GetUsersQuery(
     string CurrentUserUsername,
     string? FirstNamePrefix,
-    string? LastNamePrefix
+    string? LastNamePrefix,
+    long? Offset,
+    int? Limit
 ) : IRequest<GetUsersQueryResult>;
