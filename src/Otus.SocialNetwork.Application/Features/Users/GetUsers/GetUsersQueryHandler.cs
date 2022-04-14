@@ -29,7 +29,14 @@ public sealed class GetUsersQueryHandler : IRequestHandler<GetUsersQuery, GetUse
             .Select(friend => friend.Username)
             .ToHashSet();
 
-        var users = await _getUsersQueryObject.ToListAsync(null, cancellationToken);
+        var filters = new GetUsersFilters
+        {
+            FirstNamePrefix = request.FirstNamePrefix,
+            LastNamePrefix = request.LastNamePrefix
+        };
+        var users = await _getUsersQueryObject.ToListAsync(
+            filters,
+            cancellationToken);
 
         var userDtos = users
             .Select(user => new UserDto(

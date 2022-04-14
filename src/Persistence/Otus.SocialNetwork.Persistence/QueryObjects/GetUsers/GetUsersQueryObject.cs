@@ -26,6 +26,18 @@ internal sealed class GetUsersQueryObject : IGetUsersQueryObject
             parameters.Add("@username", filters.Username);
         }
 
+        if (filters?.FirstNamePrefix is not null)
+        {
+            predicates.Add("first_name LIKE @firstName");
+            parameters.Add("@firstName", $"{filters.FirstNamePrefix}%");
+        }
+
+        if (filters?.LastNamePrefix is not null)
+        {
+            predicates.Add("last_name LIKE @lastName");
+            parameters.Add("@lastName", $"{filters.LastNamePrefix}%");
+        }
+
         var wherePredicate = predicates.Any()
             ? "WHERE " + string.Join("AND", predicates.Select(predicate => $"({predicate})"))
             : string.Empty;

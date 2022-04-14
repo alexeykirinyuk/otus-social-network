@@ -69,9 +69,17 @@ public sealed class UsersController : ControllerBase
 
     [HttpGet]
     [CustomAuthorize]
-    public Task<GetUsersQueryResult> Get(CancellationToken ct)
+    public Task<GetUsersQueryResult> Get(
+        [FromQuery] string? firstNamePrefix,
+        [FromQuery] string? lastNamePrefix,
+        CancellationToken ct)
     {
-        return _mediator.Send(new GetUsersQuery(CurrentUsername), ct);
+        var query = new GetUsersQuery(
+            CurrentUsername,
+            firstNamePrefix,
+            lastNamePrefix);
+
+        return _mediator.Send(query, ct);
     }
 
     [HttpPut("friend")]

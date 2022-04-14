@@ -5,6 +5,10 @@ namespace Otus.SocialNetwork.Persistence.Abstranctions;
 public sealed class GetUsersFilters
 {
     public string? Username { get; set; }
+    
+    public string? FirstNamePrefix { get; set; }
+    
+    public string? LastNamePrefix { get; set; }
 }
 
 public interface IGetUsersQueryObject
