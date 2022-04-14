@@ -8,6 +8,11 @@ FROM user
 {0}
 ORDER BY created_at DESC
 ";
+    
+    public const string GET_USERS_COUNT = @"
+SELECT COUNT(1)
+FROM user
+";
 
     public const string GET_USER_INTERESTS_BY_USERNAMES = @"
 SELECT username, interest_id

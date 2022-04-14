@@ -16,4 +16,6 @@ public interface IGetUsersQueryObject
     Task<IReadOnlyList<User>> ToListAsync(GetUsersFilters? filters, CancellationToken ct);
 
     Task<User?> SingleOrDefaultAsync(GetUsersFilters? filters, CancellationToken ct);
+
+    Task<long> CountAsync(CancellationToken ct);
 }

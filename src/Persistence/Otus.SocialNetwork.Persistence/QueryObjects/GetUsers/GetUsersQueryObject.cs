@@ -3,6 +3,7 @@ using Dapper;
 using Otus.SocialNetwork.Domain;
 using Otus.SocialNetwork.Persistence.Abstranctions;
 using Otus.SocialNetwork.Persistence.QueryObjects.GetUsers.Records;
+using UserRecord = Otus.SocialNetwork.Persistence.QueryObjects.GetUsers.Records.UserRecord;
 
 namespace Otus.SocialNetwork.Persistence.QueryObjects.GetUsers;
 
@@ -110,6 +111,12 @@ internal sealed class GetUsersQueryObject : IGetUsersQueryObject
             userRecord.PasswordHash,
             userRecord.PasswordSalt,
             userRecord.CreatedAt);
+    }
+
+    public async Task<long> CountAsync(CancellationToken ct)
+    {
+        return await _db.ExecuteScalarAsync<long>(
+            new(GetUsersSql.GET_USERS_COUNT, cancellationToken: ct));
     }
 
     private async Task<IDictionary<long, string>> GetCitiesAsync(
