@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Otus.SocialNetwork.Application.Features.Users.BeFriends;
+using Otus.SocialNetwork.Application.Features.Users.GetPlainUsers;
 using Otus.SocialNetwork.Application.Features.Users.GetUserPasswordHash;
 using Otus.SocialNetwork.Application.Features.Users.GetUsers;
 using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
@@ -78,6 +79,24 @@ public sealed class UsersController : ControllerBase
     {
         var query = new GetUsersQuery(
             CurrentUsername,
+            firstNamePrefix,
+            lastNamePrefix,
+            offset,
+            limit
+        );
+
+        return _mediator.Send(query, ct);
+    }
+    
+    [HttpGet("plain")]
+    public Task<GetPlainUsersQueryResult> GetPlain(
+        [FromQuery] string? firstNamePrefix,
+        [FromQuery] string? lastNamePrefix,
+        [FromQuery] long? offset,
+        [FromQuery] int? limit,
+        CancellationToken ct)
+    {
+        var query = new GetPlainUsersQuery(
             firstNamePrefix,
             lastNamePrefix,
             offset,
