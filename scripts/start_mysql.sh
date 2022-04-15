@@ -1,5 +1,4 @@
 #!/bin/bash
-MIGRATION_PATH=$(pwd)/../src/Persistence/Otus.SocialNetwork.Persistence/Migrations
 
 docker rm $(docker ps --filter name=otus-social-network-db -a -q) -f
 docker run --name otus-social-network-db -p 3306:3306 \

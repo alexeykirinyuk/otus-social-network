@@ -6,7 +6,6 @@ internal static class GetUsersSql
 SELECT username, first_name, last_name, date_of_birth, sex, city_id, password_hash, password_salt, created_at
 FROM user
 {0}
-ORDER BY username DESC
 {1}
 ";
     
