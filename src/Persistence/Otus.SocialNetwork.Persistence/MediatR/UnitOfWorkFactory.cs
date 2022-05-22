@@ -1,6 +1,7 @@
 using System.Data;
 using Microsoft.Extensions.Configuration;
 using MySql.Data.MySqlClient;
+using Otus.SocialNetwork.Persistence.Abstranctions;
 
 namespace Otus.SocialNetwork.Persistence.MediatR;
 
@@ -17,10 +18,11 @@ internal sealed class UnitOfWorkFactory : IUnitOfWorkFactory
     }
 
     public async Task BeginTransactionAsync(
+        DatabaseType databaseType,
         IsolationLevel isolationLevel,
         CancellationToken ct)
     {
-        var connectionString = _configuration.GetConnectionString("Default");
+        var connectionString = _configuration.GetConnectionString(databaseType.ToString());
         _dbConnection = new MySqlConnection(connectionString);
         if (_dbConnection.State != ConnectionState.Open)
         {

@@ -1,10 +1,12 @@
 using System.Data;
+using Otus.SocialNetwork.Persistence.Abstranctions;
 
 namespace Otus.SocialNetwork.Persistence.MediatR;
 
 public interface IUnitOfWorkFactory
 {
     Task BeginTransactionAsync(
+        DatabaseType databaseType,
         IsolationLevel isolationLevel,
         CancellationToken ct);
 

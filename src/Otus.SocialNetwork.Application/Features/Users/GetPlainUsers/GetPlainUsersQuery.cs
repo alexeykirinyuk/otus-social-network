@@ -4,7 +4,7 @@ using Otus.SocialNetwork.Persistence.Abstranctions;
 
 namespace Otus.SocialNetwork.Application.Features.Users.GetPlainUsers;
 
-[UnitOfWork(IsolationLevel.ReadCommitted)]
+[UnitOfWork(IsolationLevel.ReadCommitted, DatabaseType.Slave1)]
 public sealed record GetPlainUsersQuery(
     string? FirstNamePrefix,
     string? LastNamePrefix,

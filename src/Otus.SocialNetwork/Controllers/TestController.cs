@@ -85,7 +85,10 @@ public sealed class TestController : ControllerBase
     private static async Task<long> GetCurrentCount(IUnitOfWorkFactory factory, IServiceProvider services,
         CancellationToken ct)
     {
-        await factory.BeginTransactionAsync(IsolationLevel.ReadCommitted, ct);
+        await factory.BeginTransactionAsync(
+            DatabaseType.Default,
+            IsolationLevel.ReadCommitted,
+            ct);
         try
         {
             var count = await services
@@ -115,7 +118,10 @@ public sealed class TestController : ControllerBase
     {
         var watch = Stopwatch.StartNew();
 
-        await factory.BeginTransactionAsync(IsolationLevel.ReadCommitted, ct);
+        await factory.BeginTransactionAsync(
+            DatabaseType.Default,
+            IsolationLevel.ReadCommitted,
+            ct);
         try
         {
             await services

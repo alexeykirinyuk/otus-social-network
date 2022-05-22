@@ -28,7 +28,10 @@ public sealed class UnitOfWorkPipelineBehavior<TRequest, TResult> : IPipelineBeh
             return await next();
         }
 
-        await _unitOfWorkFactory.BeginTransactionAsync(unitOfWorkAttribute.IsolationLevel, ct);
+        await _unitOfWorkFactory.BeginTransactionAsync(
+            unitOfWorkAttribute.DatabaseType,
+            unitOfWorkAttribute.IsolationLevel,
+            ct);
 
         try
         {
