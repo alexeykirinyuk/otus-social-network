@@ -4,6 +4,7 @@ using System.Globalization;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
+using Otus.SocialNetwork.Domain;
 using Otus.SocialNetwork.Infrastructure.Authorization;
 using Otus.SocialNetwork.Persistence.Abstranctions;
 using Otus.SocialNetwork.Persistence.MediatR;
@@ -36,6 +37,40 @@ public sealed class TestController : ControllerBase
                 CancellationToken.None
             );
         });
+    }
+
+    [HttpPost("register-users/{minutes:int}")]
+    public async Task RunRegistration(int minutes)
+    {
+        var stopwatch = Stopwatch.StartNew();
+        while (stopwatch.ElapsedMilliseconds < minutes * 1000 * 60)
+        {
+            for (var i = 0; i < 100; i++)
+            {
+                var _ = Task.Run(async () =>
+                {
+                    using var scope = _provider.CreateScope();
+                    var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
+                    var passwordHashService = scope.ServiceProvider.GetRequiredService<IPasswordHashService>();
+
+                    var (hash, salt) = passwordHashService.CreateHash("temp-123");
+
+                    await mediator.Send(new RegisterUserCommand(
+                        Guid.NewGuid().ToString(),
+                        "Alex",
+                        "Romanov",
+                        DateTime.Now,
+                        Sex.Male,
+                        new[] { "interest1" },
+                        "moscow",
+                        hash,
+                        salt
+                    ));
+                });
+            }
+
+            await Task.Delay(TimeSpan.FromSeconds(30));
+        }
     }
 
     private static async Task GenerateData(

@@ -2,3 +2,4 @@
 server-id=1
 binlog_format=ROW
 log-bin
+rpl_semi_sync_master_enabled=1

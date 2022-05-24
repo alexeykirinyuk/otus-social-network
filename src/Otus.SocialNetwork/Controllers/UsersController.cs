@@ -69,7 +69,6 @@ public sealed class UsersController : ControllerBase
     }
 
     [HttpGet]
-    [CustomAuthorize]
     public Task<GetUsersQueryResult> Get(
         [FromQuery] string? firstNamePrefix,
         [FromQuery] string? lastNamePrefix,
