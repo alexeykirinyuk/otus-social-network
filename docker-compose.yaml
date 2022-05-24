@@ -7,7 +7,7 @@ services:
     volumes:
       - ./db-replication/master.cnf:/etc/my.cnf.d/repl.cnf
       - ./db-replication/master.sql:/docker-entrypoint-initdb.d/start.sql
-      - ./../mysql:/var/lib/mysql
+      - ./../mysql/master:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=otus_social_network
       - MYSQL_ROOT_PASSWORD=mysql
@@ -20,7 +20,7 @@ services:
     volumes:
       - ./db-replication/slave.cnf:/etc/my.cnf.d/repl.cnf
       - ./db-replication/slave.sql:/docker-entrypoint-initdb.d/start.sql
-      - ./../mysql_slave:/var/lib/mysql
+      - ./../mysql/slave_1:/var/lib/mysql
     depends_on:
       - database
     environment:
@@ -34,7 +34,7 @@ services:
     volumes:
       - ./db-replication/slave2.cnf:/etc/my.cnf.d/repl.cnf
       - ./db-replication/slave2.sql:/docker-entrypoint-initdb.d/start.sql
-      - ./../mysql_slave2:/var/lib/mysql
+      - ./../mysql/slave_2:/var/lib/mysql
     depends_on:
       - database
     environment:

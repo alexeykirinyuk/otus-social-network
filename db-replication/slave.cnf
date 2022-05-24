@@ -1,3 +1,2 @@
 [mysqld]
 server-id=2
-rpl_semi_sync_slave_enabled=1

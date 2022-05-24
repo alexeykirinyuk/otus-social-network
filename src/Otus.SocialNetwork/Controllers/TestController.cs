@@ -42,12 +42,22 @@ public sealed class TestController : ControllerBase
     [HttpPost("register-users/{minutes:int}")]
     public async Task RunRegistration(int minutes)
     {
+        using var scope2 = _provider.CreateScope();
+        var count = await GetCurrentCount(
+            scope2.ServiceProvider.GetRequiredService<IUnitOfWorkFactory>(),
+            scope2.ServiceProvider,
+            CancellationToken.None);
+
+        var lockObj = new object();
+
         var stopwatch = Stopwatch.StartNew();
         while (stopwatch.ElapsedMilliseconds < minutes * 1000 * 60)
         {
-            for (var i = 0; i < 100; i++)
+            var tasks = new List<Task>();
+
+            for (var i = 0; i < 1000; i++)
             {
-                var _ = Task.Run(async () =>
+                var task = Task.Run(async () =>
                 {
                     using var scope = _provider.CreateScope();
                     var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
@@ -66,10 +76,18 @@ public sealed class TestController : ControllerBase
                         hash,
                         salt
                     ));
+
+                    lock (lockObj)
+                    {
+                        count++;
+                        Console.WriteLine($"Count: {count}");
+                    }
                 });
+                
+                tasks.Add(task);
             }
 
-            await Task.Delay(TimeSpan.FromSeconds(30));
+            await Task.WhenAll(tasks);
         }
     }
 
