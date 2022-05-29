@@ -2,7 +2,7 @@ using System.Data;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Otus.SocialNetwork.Persistence.MediatR;
-using Otus.SocialNetwork.Persistence.QueryObjects.SaveUser;
+using Otus.SocialNetwork.Persistence.QueryObjects.Users.SaveUser;
 
 namespace Otus.SocialNetwork.Persistence;
 

@@ -1,6 +1,6 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
+using Otus.SocialNetwork.Application.Features.Users.Commands.RegisterUser;
 
 namespace Otus.SocialNetwork.Application;
 

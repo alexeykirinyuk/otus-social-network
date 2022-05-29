@@ -3,6 +3,8 @@ using Microsoft.OpenApi.Models;
 using Otus.SocialNetwork;
 using Otus.SocialNetwork.Application;
 using Otus.SocialNetwork.Infrastructure.Authorization;
+using Otus.SocialNetwork.Kafka.Consumers;
+using Otus.SocialNetwork.Kafka.Producers;
 using Otus.SocialNetwork.Persistence;
 
 Directory.SetCurrentDirectory(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!);
@@ -11,10 +13,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+var configuration = builder.Configuration;
+
 builder.Services
-    .AddPresentationModule(builder.Configuration)
+    .AddPresentationModule(configuration)
     .AddApplicationModule()
-    .AddPersistenceModule();
+    .AddPersistenceModule()
+    .AddKafkaConsumers(configuration)
+    .AddKafkaProducers(configuration);
 
 builder.Services.AddSwaggerGen(opts =>
 {
@@ -69,10 +75,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
-app.UseSwagger(c =>
-{
-    c.RouteTemplate = "api/swagger/{documentName}/swagger.json";
-});
+app.UseSwagger(c => { c.RouteTemplate = "api/swagger/{documentName}/swagger.json"; });
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/api/swagger/v1/swagger.json", "Otus Social network v1");

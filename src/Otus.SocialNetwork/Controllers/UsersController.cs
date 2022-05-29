@@ -1,11 +1,11 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Otus.SocialNetwork.Application.Features.Users.BeFriends;
-using Otus.SocialNetwork.Application.Features.Users.GetPlainUsers;
-using Otus.SocialNetwork.Application.Features.Users.GetUserPasswordHash;
-using Otus.SocialNetwork.Application.Features.Users.GetUsers;
-using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
-using Otus.SocialNetwork.Application.Features.Users.StopBeingFriends;
+using Otus.SocialNetwork.Application.Features.Users.Commands.BeFriends;
+using Otus.SocialNetwork.Application.Features.Users.Commands.RegisterUser;
+using Otus.SocialNetwork.Application.Features.Users.Commands.StopBeingFriends;
+using Otus.SocialNetwork.Application.Features.Users.Queries.GetPlainUsers;
+using Otus.SocialNetwork.Application.Features.Users.Queries.GetUserPasswordHash;
+using Otus.SocialNetwork.Application.Features.Users.Queries.GetUsers;
 using Otus.SocialNetwork.Exceptions;
 using Otus.SocialNetwork.Infrastructure.Authorization;
 using Otus.SocialNetwork.ViewModels;

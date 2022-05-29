@@ -7,6 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Kafka\Otus.SocialNetwork.Kafka.Consumers\Otus.SocialNetwork.Kafka.Consumers.csproj" />
+      <ProjectReference Include="..\Kafka\Otus.SocialNetwork.Kafka.Producers\Otus.SocialNetwork.Kafka.Producers.csproj" />
       <ProjectReference Include="..\Otus.SocialNetwork.Application\Otus.SocialNetwork.Application.csproj" />
       <ProjectReference Include="..\Persistence\Otus.SocialNetwork.Persistence\Otus.SocialNetwork.Persistence.csproj" />
     </ItemGroup>

@@ -1,5 +1,5 @@
 using MediatR;
-using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
+using Otus.SocialNetwork.HostedServices;
 using Otus.SocialNetwork.Infrastructure.Authorization;
 using Otus.SocialNetwork.Persistence;
 
@@ -14,6 +14,7 @@ public static class PresentationModule
         services.AddScoped<IPasswordHashService, PasswordHashService>();
         services.AddScoped<IJwtTokenService, JwtTokenService>();
         services.Configure<JwtOptions>(configuration.GetSection(JwtOptions.JWT));
+        services.AddHostedService<PostKafkaConsumerService>();
 
         services.AddUnitOfWorkBehavior();
 

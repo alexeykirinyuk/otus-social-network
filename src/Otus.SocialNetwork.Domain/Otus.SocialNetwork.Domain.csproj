@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Libs\Otus.SocialNetwork.Libs.SharedKernel\Otus.SocialNetwork.Libs.SharedKernel.csproj" />
+    </ItemGroup>
+
 </Project>

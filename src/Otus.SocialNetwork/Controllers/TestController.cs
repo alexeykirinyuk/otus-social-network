@@ -3,10 +3,11 @@ using System.Diagnostics;
 using System.Globalization;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Otus.SocialNetwork.Application.Features.Users.RegisterUser;
+using Otus.SocialNetwork.Application.Features.Users.Commands.RegisterUser;
 using Otus.SocialNetwork.Domain;
 using Otus.SocialNetwork.Infrastructure.Authorization;
 using Otus.SocialNetwork.Persistence.Abstranctions;
+using Otus.SocialNetwork.Persistence.Abstranctions.Users;
 using Otus.SocialNetwork.Persistence.MediatR;
 
 namespace Otus.SocialNetwork.Controllers;
